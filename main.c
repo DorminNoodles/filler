@@ -6,73 +6,60 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/03 02:12:48 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/04 22:20:30 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include "libft.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 
+char	**parse_matrice(int w, int h, char **matrice)
+{
+
+
+
+	return (NULL);
+}
+
+void	get_map(t_fil *map)
+{
+
+
+}
+
+char	**create_matrice(int w, int h)
+{
+	char **plato;
+	int x;
+
+	ft_putstr_fd("Create matrice\n", 3);
+	x = -1;
+	plato = NULL;
+
+	plato = (char**)ft_memalloc(sizeof(char*) * w);
+	while (++x < w)
+		*(plato + x) = (char*)ft_memalloc(sizeof(char) * h);
+	return (plato);
+}
 
 int		main(void)
 {
-	char buff[64000];
-	char tmp[54000];
-	//char bite[] = "gkjsgkjsnegkjs43333333ndgksezkgfuhgef\0";
-	int ret;
+	t_fil dna;
 	int fd;
+	char *line;
+	char **split;
+	char **plato;
 
-	ret = 1;
+	line = NULL;
+	plato = NULL;
+	init(&dna);
+	dna.debug_fd = open("file_out", O_WRONLY);
 
-	fd = open("out_file", O_RDWR | S_IRWXU);
-
-	//printf("test =>%d\n", fd);
-
-	while(read(fd, tmp, 1))
+	while (get_next_line(0, &line))
 	{
-
+		parsing(&dna, &line);
+		play();
+		free(line);
 	}
-
-	//write(fd, "CACA", 4);
-	printf("%d\n", STDIN_FILENO);
-	while(read(STDIN_FILENO, buff, 1))
-	{
-		if (*buff != '\0')
-			write(fd, buff, 1);
-		if (ft_strstr(buff, "fin"))
-			break;
-		if (ft_strstr(buff, "error"))
-			break;
-
-	}
-
-	//
-	// while (ret < 10)
-	// {
-	// 	write(fd, "bite\n", 5);
-	// 	ret++;
-	// }
 	close(fd);
-
-
-	// while (1)
-	// 	write(1, "2 2\n", 4);
-	// while(ret)
-	// {
-	// 	read(1, buff, 120);
-	// 	// if (ft_strstr(buff, "fin"))
-	// 	// 	ret = 0;
-	// 	printf("HHHHHHHHHHHHHH\n");
-	// 	printf("b\n");
-	// }
-
-	//printf("bite => %s *\n", buff);
-
-
 	return (0);
 }
