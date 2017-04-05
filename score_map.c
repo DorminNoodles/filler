@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 01:01:29 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/06 01:29:22 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/06 01:34:21 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,20 @@ int		pose_piece(v2d origin)
 	{
 		while (x < dna->piece.w)
 		{
-			if (map[origin.x + x][origin.y + y] == ennemy_sign)
-				error = 1;
+			if piece[x][y] == '*'
+			{
+				if (map[origin.x + x][origin.y + y] == ennemy_sign)
+					error = 1;
 
-			if (map[origin.x + x][origin.y + y] == player_sign)
-				contact++;
+				if (map[origin.x + x][origin.y + y] == player_sign)
+					contact++;
 
-				//map limits
-			if (origin.x + x > map.w || origin.y + y > map.w )
-				error = 1
+					//map limits
+				if (origin.x + x > map.w || origin.y + y > map.w )
+					error = 1
 
-			score += score_map[x][y];
-
-
+				score += score_map[x][y];
+			}
 		}
 
 	}
