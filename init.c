@@ -6,15 +6,15 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/04 16:32:47 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/06 21:14:53 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	init(t_fil *dna)
+void	init_dna(t_fil *dna)
 {
-	dna->plato = NULL;
-
+	dna->player = 0;
+	dna->area = NULL;
 
 }
