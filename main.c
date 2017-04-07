@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/07 02:44:37 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/07 18:24:25 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,11 +182,10 @@ int		main(void)
 	{
 		if (!dna.area)
 			init_game(&dna, &line);
-
 		dprintf(2, "test w=> %d\n", dna.map.w);
 		dprintf(2, "test h=> %d\n", dna.map.h);
 		dprintf(2, "test player=> %d\n", dna.player);
-		parsing(dna, &line);
+		parsing(&dna, &line);
 		// ft_putstr_fd(line, dna.debug_fd);
 		// ft_putstr_fd("\n", dna.debug_fd);
 		// parsing(&dna, &line);

@@ -6,34 +6,63 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/07 02:44:36 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/07 18:32:04 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
 
-// void debug_show(t_fil *dna)
-// {
-// 	int x;
-// 	int y;
-//
-// 	y = 0;
-// 	x = 0;
-//
-// 	while (y < dna->map.h)
-// 	{
-// 		x = 0;
-// 		while (x < dna->map.w)
-// 		{
-// 			ft_putchar_fd(dna->map.m[x][y], dna->debug_fd);
-// 			x++;
-// 		}
-// 		y++;
-// 		ft_putchar_fd('\n', dna->debug_fd);
-// 	}
-// }
-//
+void debug_show(t_fil *dna)
+{
+	int x;
+	int y;
+
+	y = 0;
+	x = 0;
+
+	while (y < dna->map.h)
+	{
+		// dprintf(2, "%d\n", dna->map.h);
+		// dprintf(2, "\n @=>");
+		x = 0;
+		while (x < dna->map.w)
+		{
+			// dprintf(2, "%c", dna->area[x][y].sign);
+			dprintf(2, "%6d", dna->area[x][y].score);
+			x++;
+		}
+		dprintf(2, "y => %d\n", y);
+		y++;
+		// ft_putchar_fd('\n', 2);
+	}
+}
+
+void debug_show_2(t_fil *dna)
+{
+	int x;
+	int y;
+
+	y = 0;
+	x = 0;
+
+	while (y < dna->map.h)
+	{
+		// dprintf(2, "%d\n", dna->map.h);
+		// dprintf(2, "\n @=>");
+		x = 0;
+		while (x < dna->map.w)
+		{
+			dprintf(2, "%c", dna->area[x][y].sign);
+			// dprintf(2, "%6d", dna->area[x][y].score);
+			x++;
+		}
+		dprintf(2, "y => %d\n", y);
+		y++;
+		// ft_putchar_fd('\n', 2);
+	}
+}
+
 // void debug_show_piece(t_fil *dna)
 // {
 // 	int x;
@@ -56,22 +85,64 @@
 // 	}
 // }
 //
+void	runny(t_fil *dna, int x, int y, int score)
+{
+	dna->area[x][y].score = score;
+	if (x - 1 >= 0 && score > dna->area[x - 1][y].score)
+		runny(dna, x - 1, y, score - 1);
+
+	if (x + 1 < dna->map.w && score > dna->area[x + 1][y].score)
+		runny(dna, x + 1, y, score - 1);
+
+	if (y - 1 >= 0 && score > dna->area[x][y - 1].score)
+		runny(dna, x, y - 1, score - 1);
+
+	if (y + 1 < dna->map.h && score > dna->area[x][y + 1].score)
+		runny(dna, x, y + 1, score - 1);
+
+	// if (dna->area[x][y].active)
+	// 	dna->area[x][y].score = score;
+	// else
+	// 	dna->area[x][y].score = 0;
+	// if (x - 1 >= 0 && dna->area[x - 1][y].active && dna->area[x - 1][y].score < score)
+	// 	runny(dna, x - 1, y, dna->area[x - 1][y].score - 1);
+
+}
+
+void	add_piece(t_fil *dna, int x, int y, char c)
+{
+	// dprintf(2, "add_piece\n");
+	if (dna->area[x][y].sign != c && c == dna->enemy_char)
+	{
+		dprintf(2, "new piece !\n");
+		dna->area[x][y].active = 0;
+		dna->area[x][y].sign = dna->enemy_char;
+		runny(dna, x, y, 100);
+
+	}
+	// dna->area[x][y].sign = c;
+}
+
 void	pars_map(t_fil *dna, char **line)
 {
 	char **split;
 	char *tmp;
+	int i;
 	int x;
 	int y;
 
 	ft_putstr_fd("Parsing Map \n", dna->debug_fd);
 	x = 0;
 	y = 0;
+	i = 0;
 	tmp = NULL;
-	while (!ft_strstr(*line, "000 "))
+	while (i < 1)
 	{
 		ft_memdel((void**)line);
 		get_next_line(0, line);
+		i++;
 	}
+	//dprintf(2, "%s\n", *line);
 	while (y < dna->map.h)
 	{
 		ft_memdel((void**)line);
@@ -80,13 +151,15 @@ void	pars_map(t_fil *dna, char **line)
 		x = 0;
 		while (x < dna->map.w)
 		{
-			dna->area[x][y].sign = *tmp;
+			add_piece(dna, x, y, *tmp);
 			tmp++;
 			x++;
 		}
 		y++;
+		//dprintf(2, "TEST\n");
 	}
 	debug_show(dna);
+	debug_show_2(dna);
 }
 
 // void	pars_piece(t_fil *dna, char **line)
@@ -160,7 +233,7 @@ void	parsing(t_fil *dna, char **line)
 {
 	//ft_putstr_fd(*line, dna->debug_fd);
 	// pars_player(dna, line);
-	pars_map(dna, &line);
+	pars_map(dna, line);
 	// pars_game(dna, line);
 	// pars_piece(dna, line);
 	// while (!ft_strstr(*line, "Piece"))
