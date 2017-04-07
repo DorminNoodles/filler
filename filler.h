@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/06 22:11:26 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/07 01:19:36 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct	s_case
 	char sign;
 	int score;
 	int active;
-
 
 }t_case;
 

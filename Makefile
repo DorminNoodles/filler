@@ -10,7 +10,7 @@ SRC =	main.c							\
 
 INC =	libft/includes
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
@@ -23,9 +23,11 @@ $(NAME) : $(OBJ)
 	$(CC) -c $< -I $(INC) -o $@
 
 clean :
+	make -C libft/ clean
 	rm -f $(OBJ)
 
 fclean : clean
+	make -C libft/ fclean
 	rm -f $(NAME)
 
 re : fclean all

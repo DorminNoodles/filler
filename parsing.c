@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/06 21:26:42 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/07 02:44:36 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,48 +56,39 @@
 // 	}
 // }
 //
-// void	pars_game(t_fil *dna, char **line)
-// {
-// 	char **split;
-// 	char *tmp;
-// 	int x;
-// 	int y;
-//
-// 	ft_putstr_fd("Parsing Game \n", dna->debug_fd);
-// 	x = 0;
-// 	y = 0;
-// 	tmp = NULL;
-// 	while (!ft_strstr(*line, "Plateau"))
-// 	{
-// 		ft_memdel((void**)line);
-// 		get_next_line(0, line);
-// 	}
-// 	if ((split = ft_strsplit(*line, ' ')))
-// 	{
-// 		dna->map.w = ft_atoi(split[2]);
-// 		dna->map.h = ft_atoi(split[1]);
-// 	}
-// 	dna->map.m = create_matrice(dna->map.w, dna->map.h);
-// 	del_split(split);
-// 	ft_memdel((void**)line);
-// 	get_next_line(0, line);
-// 	while (y < dna->map.h)
-// 	{
-// 		ft_memdel((void**)line);
-// 		get_next_line(0, line);
-// 		tmp = *line + 4;
-// 		x = 0;
-// 		while (x < dna->map.w)
-// 		{
-// 			dna->map.m[x][y] = *tmp;
-// 			tmp++;
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// 	debug_show(dna);
-// }
-//
+void	pars_map(t_fil *dna, char **line)
+{
+	char **split;
+	char *tmp;
+	int x;
+	int y;
+
+	ft_putstr_fd("Parsing Map \n", dna->debug_fd);
+	x = 0;
+	y = 0;
+	tmp = NULL;
+	while (!ft_strstr(*line, "000 "))
+	{
+		ft_memdel((void**)line);
+		get_next_line(0, line);
+	}
+	while (y < dna->map.h)
+	{
+		ft_memdel((void**)line);
+		get_next_line(0, line);
+		tmp = *line + 4;
+		x = 0;
+		while (x < dna->map.w)
+		{
+			dna->area[x][y].sign = *tmp;
+			tmp++;
+			x++;
+		}
+		y++;
+	}
+	debug_show(dna);
+}
+
 // void	pars_piece(t_fil *dna, char **line)
 // {
 // 	char **split;
@@ -165,22 +156,23 @@
 // 	}
 // }
 //
-// void	parsing(t_fil *dna, char **line)
-// {
-// 	//ft_putstr_fd(*line, dna->debug_fd);
-// 	pars_player(dna, line);
-// 	pars_game(dna, line);
-// 	pars_piece(dna, line);
-// 	// while (!ft_strstr(*line, "Piece"))
-// 	// {
-// 	// 	ft_memdel((void**)line);
-// 	// 	get_next_line(0, line);
-// 	// }
-// 	//pars_piece(dna, line);
-// 	// ft_putchar_fd('\n', dna->debug_fd);
-// 	//ft_putstr_fd(*line, dna->debug_fd);
-// 	ft_putstr_fd("EXIT_PARSING\n", dna->debug_fd);
-// }
+void	parsing(t_fil *dna, char **line)
+{
+	//ft_putstr_fd(*line, dna->debug_fd);
+	// pars_player(dna, line);
+	pars_map(dna, &line);
+	// pars_game(dna, line);
+	// pars_piece(dna, line);
+	// while (!ft_strstr(*line, "Piece"))
+	// {
+	// 	ft_memdel((void**)line);
+	// 	get_next_line(0, line);
+	// }
+	//pars_piece(dna, line);
+	// ft_putchar_fd('\n', dna->debug_fd);
+	//ft_putstr_fd(*line, dna->debug_fd);
+	ft_putstr_fd("EXIT_PARSING\n", dna->debug_fd);
+}
 
 /*
 	hum..... je dois faire cette putain de boucle avec get_next_line

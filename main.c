@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/06 22:11:25 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/07 02:44:37 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void debug_show_area(t_fil *dna)
 		x = 0;
 		while (x < dna->map.w)
 		{
-			dprintf(2, "%c", dna->area[x][y].sign);
+			dprintf(2, "%4d", dna->area[x][y].score);
+			// dprintf(2, "%c", dna->area[x][y].sign);
 			x++;
 		}
 		y++;
@@ -100,23 +101,19 @@ void	create_area(t_fil *dna, char **line)
 		exit(EXIT_FAILURE);
 	while (x < dna->map.w)
 	{
-		// if(!(*(area + x) = (t_case*)ft_memalloc(sizeof(t_case) * dna->map.h)))
-		// 	exit(EXIT_FAILURE);
-		area[x] = (t_case*)ft_memalloc(sizeof(t_case) * dna->map.h);
-
-		dna->area[0][0].score = 3;
-		// y = 0;
-		// while (y < dna->map.h)
-		// {
-			ft_putstr_fd("4\n", 2);
-
-			// dna->area[x][y].sign = '.';
-			// dna->area[x][y].score = 0;
-			// dna->area[x][y].active = 1;
-		// 	y++;
-		// }
+		if(!(*(area + x) = (t_case*)ft_memalloc(sizeof(t_case) * dna->map.h)))
+			exit(EXIT_FAILURE);
+		y = 0;
+		while (y < dna->map.h)
+		{
+			area[x][y].sign = '.';
+			area[x][y].score = 0;
+			area[x][y].active = 1;
+			y++;
+		}
 		x++;
 	}
+	dna->area = area;
 }
 
 void	init_area(t_fil *dna, char **line)
@@ -189,6 +186,7 @@ int		main(void)
 		dprintf(2, "test w=> %d\n", dna.map.w);
 		dprintf(2, "test h=> %d\n", dna.map.h);
 		dprintf(2, "test player=> %d\n", dna.player);
+		parsing(dna, &line);
 		// ft_putstr_fd(line, dna.debug_fd);
 		// ft_putstr_fd("\n", dna.debug_fd);
 		// parsing(&dna, &line);
