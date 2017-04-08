@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/07 18:32:04 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/08 02:40:56 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,27 +85,76 @@ void debug_show_2(t_fil *dna)
 // 	}
 // }
 //
-void	runny(t_fil *dna, int x, int y, int score)
+// void	runny(t_fil *dna, int x, int y, int score)
+// {
+// 	dna->area[x][y].score = score;
+// 	if (x - 1 >= 0 && score > dna->area[x - 1][y].score)
+// 		runny(dna, x - 1, y, score - 1);
+//
+// 	if (x + 1 < dna->map.w && score > dna->area[x + 1][y].score)
+// 		runny(dna, x + 1, y, score - 1);
+//
+// 	if (y - 1 >= 0 && score > dna->area[x][y - 1].score)
+// 		runny(dna, x, y - 1, score - 1);
+//
+// 	if (y + 1 < dna->map.h && score > dna->area[x][y + 1].score)
+// 		runny(dna, x, y + 1, score - 1);
+//
+// 	// if (dna->area[x][y].active)
+// 	// 	dna->area[x][y].score = score;
+// 	// else
+// 	// 	dna->area[x][y].score = 0;
+// 	// if (x - 1 >= 0 && dna->area[x - 1][y].active && dna->area[x - 1][y].score < score)
+// 	// 	runny(dna, x - 1, y, dna->area[x - 1][y].score - 1);
+// }
+
+void	make_square(int x, int y, int scale)
 {
-	dna->area[x][y].score = score;
-	if (x - 1 >= 0 && score > dna->area[x - 1][y].score)
-		runny(dna, x - 1, y, score - 1);
 
-	if (x + 1 < dna->map.w && score > dna->area[x + 1][y].score)
-		runny(dna, x + 1, y, score - 1);
 
-	if (y - 1 >= 0 && score > dna->area[x][y - 1].score)
-		runny(dna, x, y - 1, score - 1);
+}
 
-	if (y + 1 < dna->map.h && score > dna->area[x][y + 1].score)
-		runny(dna, x, y + 1, score - 1);
+void	wave(t_fil *dna, int x, int y, int score)
+{
+	int size;
+	int i;
+	int j;
+	int o;
+	int tmp;
 
-	// if (dna->area[x][y].active)
-	// 	dna->area[x][y].score = score;
-	// else
-	// 	dna->area[x][y].score = 0;
-	// if (x - 1 >= 0 && dna->area[x - 1][y].active && dna->area[x - 1][y].score < score)
-	// 	runny(dna, x - 1, y, dna->area[x - 1][y].score - 1);
+	i = 0;
+	j = 0;
+	o = 0;
+	size = 5;
+
+	while (i < size)
+	{
+		tmp = x - (size/2);
+		if (tmp + i < dna->map.w && tmp >= 0)
+			dna->area[x - (size/2) + i][y].sign = '4';
+		i++;
+	}
+
+	// size = 1;
+	// dna->area[x][y].score = score;
+	//
+	// while (o < 2)
+	// {
+	// 	j = 0;
+	// 	i = 0;
+	// 	while (i < size)
+	// 	{
+	// 		dprintf(2, "size => %d\n", size);
+	// 		dna->area[x - (j + i)][y].score = score - o;
+	// 		i++;
+	// 	}
+	// 	j++;
+	// 	o++;
+	// 	y--;
+	// 	size +=2;
+	//
+	// }
+
 
 }
 
@@ -115,9 +164,8 @@ void	add_piece(t_fil *dna, int x, int y, char c)
 	if (dna->area[x][y].sign != c && c == dna->enemy_char)
 	{
 		dprintf(2, "new piece !\n");
-		dna->area[x][y].active = 0;
 		dna->area[x][y].sign = dna->enemy_char;
-		runny(dna, x, y, 100);
+		wave(dna, x, y, 100);
 
 	}
 	// dna->area[x][y].sign = c;
