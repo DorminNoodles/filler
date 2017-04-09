@@ -6,16 +6,42 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 16:32:23 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/10 00:08:03 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
+void debug_show_3(t_fil *dna)
+{
+	int x;
+	int y;
+
+	y = 0;
+	x = 0;
+
+	while (y < dna->map.h)
+	{
+		// dprintf(2, "%d\n", dna->map.h);
+		// dprintf(2, "\n @=>");
+		x = 0;
+		while (x < dna->map.w)
+		{
+			dprintf(2, "%c", dna->area[x][y].sign);
+			// dprintf(2, "%6d", dna->area[x][y].score);
+			x++;
+		}
+		dprintf(2, "\n");
+		y++;
+		// ft_putchar_fd('\n', 2);
+	}
+}
+
 void	play(t_fil *dna)
 {
-	dprintf(1, "20 23\n");
-	dprintf(2, "POSE PIECE => 0 0\n");
+	dprintf(2, "ENTER PLAY\n");
+	// debug_show_3(dna);
+	check_move(dna);
 
 }
 

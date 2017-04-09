@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 20:22:22 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/10 00:02:40 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,6 +208,13 @@ void	add_piece(t_fil *dna, int x, int y, char c)
 		wave(dna, x, y, 50);
 
 	}
+	if (dna->area[x][y].sign != c && c == dna->player_char)
+	{
+		//dprintf(2, "new piece !\n");
+		dna->area[x][y].sign = dna->player_char;
+		dna->area[x][y].score = 0;
+
+	}
 	// dna->area[x][y].sign = c;
 }
 
@@ -264,8 +271,8 @@ void	pars_map(t_fil *dna, char **line)
 		dprintf(2, "line => %s\n", *line);
 	}
 	// dprintf(2, "Search segfault in %s => 3\n", __func__);
-	debug_show(dna);
-	debug_show_2(dna);
+	// debug_show(dna);
+	// debug_show_2(dna);
 }
 
 void	pars_piece(t_fil *dna, char **line)
@@ -289,8 +296,7 @@ void	pars_piece(t_fil *dna, char **line)
 		dna->piece.w = ft_atoi(split[2]);
 		dna->piece.h = ft_atoi(split[1]);
 	}
-	ft_memdel((void**)line);
-	get_next_line(0, line);
+	dprintf(2, "C est moi => %s\n", *line);
 	// ft_putstr_fd("p.w =>", dna->debug_fd);
 	// ft_putstr_fd(ft_itoa(dna->piece.w), dna->debug_fd);
 	// ft_putstr_fd("\n", dna->debug_fd);
@@ -299,8 +305,12 @@ void	pars_piece(t_fil *dna, char **line)
 	// ft_putstr_fd("\n", dna->debug_fd);
 	// dna->piece.m = create_matrice(dna->piece.w, dna->piece.h);
 	// del_split(split);
-	while (y < dna->piece.h - 1)
+	dprintf(2, "C est moi => %s\n", *line);
+	while (y < dna->piece.h)
 	{
+		ft_memdel((void **)line);
+		get_next_line(0, line);
+		// dprintf(2, "######################Bite !\n");
 		x = 0;
 		tmp = *line;
 		while (x < dna->piece.w)
@@ -314,12 +324,11 @@ void	pars_piece(t_fil *dna, char **line)
 		}
 		dprintf(2, "\n");
 		//ft_putchar_fd('\n', dna->debug_fd);
-		ft_memdel((void **)line);
-		get_next_line(0, line);
 		y++;
 	}
-	dprintf(2, "Mes fesses\n");
-	dprintf(2, "line => %s\n", *line);
+	// dprintf(2, "Mes fesses\n");
+	dprintf(2, "END PARS PIECE\n");
+	// dprintf(2, "line => %s\n", *line);
 	// debug_show_piece(dna);
 
 }

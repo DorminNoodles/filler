@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 20:09:36 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/09 23:02:17 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void	play(t_fil *dna);
 char	**create_matrice(int w, int h);
 void	del_split(char **split);
 int		**create_score_map(t_fil *dna);
+void	check_move(t_fil *dna);
 
 #endif

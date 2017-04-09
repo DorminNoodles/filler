@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 21:15:48 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/09 23:25:58 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,8 +194,8 @@ int		main(void)
 		dprintf(2, "Fuck\n");
 		// dprintf(2, "20 23\n");
 		// dprintf(1, "20 23\n");
-		dprintf(1, "23 20\n");
-		//play(&dna);
+		//dprintf(1, "23 20\n");
+		play(&dna);
 		// free(line);
 	}
 	close(fd);
