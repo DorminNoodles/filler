@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/07 01:19:36 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/09 20:09:36 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 #include <signal.h>
 #include "libft.h"
 #include "get_next_line.h"
+
+#define BUFFER_PIECE 64
 
 typedef struct	s_case
 {
@@ -48,7 +50,7 @@ typedef struct s_piece
 {
 		int w;
 		int h;
-		char **m;
+		char tab[BUFFER_PIECE][BUFFER_PIECE];
 }t_piece;
 
 typedef struct		s_fil
@@ -69,7 +71,7 @@ typedef struct		s_fil
 void	init_dna(t_fil *dna);
 void	fill_map(t_fil *dna, char **line);
 void	parsing(t_fil *dna, char **line);
-void	play();
+void	play(t_fil *dna);
 char	**create_matrice(int w, int h);
 void	del_split(char **split);
 int		**create_score_map(t_fil *dna);
