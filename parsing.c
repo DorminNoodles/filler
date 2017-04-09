@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 02:14:28 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/09 20:22:22 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void debug_show(t_fil *dna)
 			dprintf(2, "%3d", dna->area[x][y].score);
 			x++;
 		}
-		dprintf(2, "y => %d\n", y);
+		dprintf(2, "\n");
 		y++;
 		// ft_putchar_fd('\n', 2);
 	}
@@ -57,7 +57,7 @@ void debug_show_2(t_fil *dna)
 			// dprintf(2, "%6d", dna->area[x][y].score);
 			x++;
 		}
-		dprintf(2, "y => %d\n", y);
+		dprintf(2, "\n");
 		y++;
 		// ft_putchar_fd('\n', 2);
 	}
@@ -118,12 +118,19 @@ void	make_square(t_fil *dna, int x, int y, int size, int score)
 	{
 		if (x + i >= 0 && x + i < dna->map.w && y >= 0)
 		{
-			dprintf(2, "x => %d    y => %d \n", x, y);
 			dna->area[x + i][y].score = score;
 		}
 		if (x + i >= 0 && x + i < dna->map.w && y + size - 1 < dna->map.h)
 		{
 			dna->area[x + i][y + size - 1].score = score;
+		}
+		if (x >= 0 && y + i < dna->map.h && y + i >= 0)
+		{
+			dna->area[x][y + i].score = score;
+		}
+		if (x + size < dna->map.w && y + i < dna->map.h && y + i >= 0)
+		{
+			dna->area[x + size][y + i].score = score;
 		}
 		i++;
 	}
@@ -195,7 +202,7 @@ void	add_piece(t_fil *dna, int x, int y, char c)
 	// dprintf(2, "add_piece\n");
 	if (dna->area[x][y].sign != c && c == dna->enemy_char)
 	{
-		dprintf(2, "new piece !\n");
+		//dprintf(2, "new piece !\n");
 		dna->area[x][y].sign = dna->enemy_char;
 		dna->area[x][y].score = 50;
 		wave(dna, x, y, 50);
@@ -213,85 +220,109 @@ void	pars_map(t_fil *dna, char **line)
 	int y;
 
 	ft_putstr_fd("Parsing Map \n", dna->debug_fd);
+	dprintf(2, "Search segfault in %s => 1\n", __func__);
+
 	x = 0;
 	y = 0;
 	i = 0;
 	tmp = NULL;
-	while (i < 1)
+	while (!ft_strstr(*line, "000 "))
 	{
+		dprintf(2, "Here !\n");
 		ft_memdel((void**)line);
 		get_next_line(0, line);
+		//dprintf(2, "line => %s\n", *line);
 		i++;
 	}
+	dprintf(2, "tmp => %s\n", *line);
 	//dprintf(2, "%s\n", *line);
+	dprintf(2, "Search segfault in %s => 2\n", __func__);
 	while (y < dna->map.h)
 	{
-		ft_memdel((void**)line);
-		get_next_line(0, line);
+
+		//dprintf(2, "tmp => %s\n", tmp);
+
+		// dprintf(2, "Segfault here 1\n");
 		tmp = *line + 4;
+		// dprintf(2, "x => %d\n", x);
+		// dprintf(2, "y => %d\n", y);
+		//dprintf(2, "tmp => %s\n", tmp);
 		x = 0;
 		while (x < dna->map.w)
 		{
+
+			// dprintf(2, "Segfault here 2\n");
 			add_piece(dna, x, y, *tmp);
+			// dprintf(2, "Segfault here 3\n");
 			tmp++;
 			x++;
 		}
 		y++;
 		//dprintf(2, "TEST\n");
+		ft_memdel((void**)line);
+		get_next_line(0, line);
+		dprintf(2, "line => %s\n", *line);
 	}
+	// dprintf(2, "Search segfault in %s => 3\n", __func__);
 	debug_show(dna);
 	debug_show_2(dna);
 }
 
-// void	pars_piece(t_fil *dna, char **line)
-// {
-// 	char **split;
-// 	char *tmp;
-// 	int y;
-// 	int x;
-//
-// 	y = 0;
-// 	x = 0;
-//
-// 	ft_putstr_fd("Parsing Piece \n", dna->debug_fd);
-// 	while (!ft_strstr(*line, "Piece"))
-// 	{
-// 		ft_memdel((void**)line);
-// 		get_next_line(0, line);
-// 	}
-// 	if ((split = ft_strsplit(*line, ' ')))
-// 	{
-// 		dna->piece.w = ft_atoi(split[2]);
-// 		dna->piece.h = ft_atoi(split[1]);
-// 	}
-//
-// 	ft_putstr_fd("p.w =>", dna->debug_fd);
-// 	ft_putstr_fd(ft_itoa(dna->piece.w), dna->debug_fd);
-// 	ft_putstr_fd("\n", dna->debug_fd);
-// 	ft_putstr_fd("p.h =>", dna->debug_fd);
-// 	ft_putstr_fd(ft_itoa(dna->piece.h), dna->debug_fd);
-// 	ft_putstr_fd("\n", dna->debug_fd);
-// 	dna->piece.m = create_matrice(dna->piece.w, dna->piece.h);
-// 	del_split(split);
-// 	while (y < dna->piece.h)
-// 	{
-// 		ft_memdel((void **)line);
-// 		get_next_line(0, line);
-// 		x = 0;
-// 		tmp = *line;
-// 		while (x < dna->piece.w)
-// 		{
-// 			dna->piece.m[x][y] = *tmp;
-// 			// ft_putchar_fd(*tmp, dna->debug_fd);
-// 			tmp++;
-// 			x++;
-// 		}
-// 		//ft_putchar_fd('\n', dna->debug_fd);
-// 		y++;
-// 	}
-// 	debug_show_piece(dna);
-//
-// }
+void	pars_piece(t_fil *dna, char **line)
+{
+	char **split;
+	char *tmp;
+	int y;
+	int x;
+
+	y = 0;
+	x = 0;
+
+	dprintf(2, "Parsing Piece\n");
+	while (!ft_strstr(*line, "Piece"))
+	{
+		ft_memdel((void**)line);
+		get_next_line(0, line);
+	}
+	if ((split = ft_strsplit(*line, ' ')))
+	{
+		dna->piece.w = ft_atoi(split[2]);
+		dna->piece.h = ft_atoi(split[1]);
+	}
+	ft_memdel((void**)line);
+	get_next_line(0, line);
+	// ft_putstr_fd("p.w =>", dna->debug_fd);
+	// ft_putstr_fd(ft_itoa(dna->piece.w), dna->debug_fd);
+	// ft_putstr_fd("\n", dna->debug_fd);
+	// ft_putstr_fd("p.h =>", dna->debug_fd);
+	// ft_putstr_fd(ft_itoa(dna->piece.h), dna->debug_fd);
+	// ft_putstr_fd("\n", dna->debug_fd);
+	// dna->piece.m = create_matrice(dna->piece.w, dna->piece.h);
+	// del_split(split);
+	while (y < dna->piece.h - 1)
+	{
+		x = 0;
+		tmp = *line;
+		while (x < dna->piece.w)
+		{
+			//dprintf(2, "TEST\n");
+
+			dna->piece.tab[x][y] = *tmp;
+			dprintf(2, "%c", *tmp);
+			tmp++;
+			x++;
+		}
+		dprintf(2, "\n");
+		//ft_putchar_fd('\n', dna->debug_fd);
+		ft_memdel((void **)line);
+		get_next_line(0, line);
+		y++;
+	}
+	dprintf(2, "Mes fesses\n");
+	dprintf(2, "line => %s\n", *line);
+	// debug_show_piece(dna);
+
+}
 //
 // void	pars_player(t_fil *dna, char **line)
 // {
@@ -314,9 +345,13 @@ void	parsing(t_fil *dna, char **line)
 {
 	//ft_putstr_fd(*line, dna->debug_fd);
 	// pars_player(dna, line);
+	dprintf(2, "Search segfault in parsing => 1\n");
 	pars_map(dna, line);
+	dprintf(2, "Search segfault in parsing => 2\n");
 	// pars_game(dna, line);
-	// pars_piece(dna, line);
+	dprintf(2, "Exit pars_map\n");
+	pars_piece(dna, line);
+
 	// while (!ft_strstr(*line, "Piece"))
 	// {
 	// 	ft_memdel((void**)line);

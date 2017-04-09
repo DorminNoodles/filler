@@ -6,11 +6,20 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/06 19:27:39 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/09 16:32:23 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+
+void	play(t_fil *dna)
+{
+	dprintf(1, "20 23\n");
+	dprintf(2, "POSE PIECE => 0 0\n");
+
+}
+
+
 
 //
 // static void debug_show_score(t_fil *dna)

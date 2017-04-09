@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 21:09:03 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/09 21:15:48 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,20 +177,25 @@ int		main(void)
 	line = NULL;
 	dna.area = NULL;
 	//dna.debug_fd = open("file_out", O_WRONLY);
-	dprintf(2, "Search segfault\n");
 	while (get_next_line(0, &line))
 	{
+		dprintf(2, "Search segfault 1\n");
 		if (!dna.area)
 			init_game(&dna, &line);
 		dprintf(2, "test w=> %d\n", dna.map.w);
 		dprintf(2, "test h=> %d\n", dna.map.h);
 		dprintf(2, "test player=> %d\n", dna.player);
 		parsing(&dna, &line);
+		dprintf(2, "Search segfault 2\n");
 		// ft_putstr_fd(line, dna.debug_fd);
 		// ft_putstr_fd("\n", dna.debug_fd);
 		// parsing(&dna, &line);
 		// ft_putstr_fd("Putain de merde\n", dna.debug_fd);
-		// play(dna);
+		dprintf(2, "Fuck\n");
+		// dprintf(2, "20 23\n");
+		// dprintf(1, "20 23\n");
+		dprintf(1, "23 20\n");
+		//play(&dna);
 		// free(line);
 	}
 	close(fd);
