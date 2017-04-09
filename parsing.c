@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 00:47:17 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/09 02:14:28 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void debug_show(t_fil *dna)
 		while (x < dna->map.w)
 		{
 			// dprintf(2, "%c", dna->area[x][y].sign);
-			dprintf(2, "%6d", dna->area[x][y].score);
+			dprintf(2, "%3d", dna->area[x][y].score);
 			x++;
 		}
 		dprintf(2, "y => %d\n", y);
@@ -116,14 +116,18 @@ void	make_square(t_fil *dna, int x, int y, int size, int score)
 	//up
 	while (i < size)
 	{
-		if (x + i >= 0 && x + i < dna->map.w && y >= 0 && y < dna->map.h)
+		if (x + i >= 0 && x + i < dna->map.w && y >= 0)
 		{
 			dprintf(2, "x => %d    y => %d \n", x, y);
 			dna->area[x + i][y].score = score;
 		}
+		if (x + i >= 0 && x + i < dna->map.w && y + size - 1 < dna->map.h)
+		{
+			dna->area[x + i][y + size - 1].score = score;
+		}
 		i++;
-
 	}
+	i = 0;
 	//left
 
 	//right
@@ -143,7 +147,7 @@ void	wave(t_fil *dna, int x, int y, int score)
 	i = 1;
 	j = 0;
 	o = 0;
-	size = 5;
+	size = 50;
 
 	while (i < size)
 	{
@@ -160,25 +164,6 @@ void	wave(t_fil *dna, int x, int y, int score)
 		// i++;
 	}
 
-	// size = 1;
-	// dna->area[x][y].score = score;
-	//
-	// while (o < 2)
-	// {
-	// 	j = 0;
-	// 	i = 0;
-	// 	while (i < size)
-	// 	{
-	// 		dprintf(2, "size => %d\n", size);
-	// 		dna->area[x - (j + i)][y].score = score - o;
-	// 		i++;
-	// 	}
-	// 	j++;
-	// 	o++;
-	// 	y--;
-	// 	size +=2;
-	//
-	// }
 
 
 }
