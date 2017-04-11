@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 12:34:00 by lchety           ###   ########.fr       */
+/*   Created: 2017/04/11 12:20:55 by lchety            #+#    #+#             */
+/*   Updated: 2017/04/11 12:29:03 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	init_dna(t_fil *dna)
+void debug_score_map(t_fil *dna)
 {
-	dna->player = 0;
-	dna->area = NULL;
-	dna->move.x = 0;
-	dna->move.y = 0;
-	dna->move.score = 0;
+	int x;
+	int y;
 
+	y = 0;
+	x = 0;
+
+	while (y < dna->map.h)
+	{
+		// dprintf(2, "%d\n", dna->map.h);
+		// dprintf(2, "\n @=>");
+		x = 0;
+		while (x < dna->map.w)
+		{
+			// dprintf(2, "%c", dna->area[x][y].sign);
+			dprintf(2, "%3d", dna->area[x][y].score);
+			x++;
+		}
+		dprintf(2, "\n");
+		y++;
+		// ft_putchar_fd('\n', 2);
+	}
 }

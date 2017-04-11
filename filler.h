@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/10 18:17:09 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 12:56:58 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #include "get_next_line.h"
 
 #define BUFFER_PIECE 64
+#define DIAGONALE 90
 
 typedef struct	s_case
 {
@@ -85,5 +86,8 @@ char	**create_matrice(int w, int h);
 void	del_split(char **split);
 int		**create_score_map(t_fil *dna);
 void	check_move(t_fil *dna);
+void	debug_score_map(t_fil *dna);
+void	wave(t_fil *dna, int x, int y, int score);
+void	diagonale(t_fil *dna);
 
 #endif

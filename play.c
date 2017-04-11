@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/10 00:08:03 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 12:46:25 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void debug_show_3(t_fil *dna)
 void	play(t_fil *dna)
 {
 	dprintf(2, "ENTER PLAY\n");
+	diagonale(dna);
+	debug_score_map(dna);
 	// debug_show_3(dna);
 	check_move(dna);
 

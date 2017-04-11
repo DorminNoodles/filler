@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 02:27:00 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 12:30:13 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 
 	if (weld == 1)
 	{
-		dprintf(2, "Find Move x %d  y %d  \n", tabx, taby);
-		dprintf(2, "Score = > %d  \n", score);
+		// dprintf(2, "Find Move x %d  y %d  \n", tabx, taby);
+		// dprintf(2, "Score = > %d  \n", score);
 		return (score);
 	}
 	else
@@ -113,7 +113,7 @@ void	check_move(t_fil *dna)
 				dprintf(2, "dna => %d\n", dna->move.score);
 				if (score > dna->move.score)
 				{
-					dprintf(2, "More scoring\n");
+					// dprintf(2, "More scoring\n");
 					dna->move.score = score;
 					dna->move.x = x;
 					dna->move.y = y;

@@ -7,7 +7,9 @@ SRC =	main.c							\
 		play.c							\
 		del.c							\
 		score_map.c						\
-		check_move.c
+		check_move.c					\
+		debug.c							\
+		tactique.c
 
 INC =	libft/includes
 

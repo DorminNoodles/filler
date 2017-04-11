@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/10 00:02:40 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 12:35:57 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,72 +108,9 @@ void debug_show_2(t_fil *dna)
 // 	// 	runny(dna, x - 1, y, dna->area[x - 1][y].score - 1);
 // }
 
-void	make_square(t_fil *dna, int x, int y, int size, int score)
-{
-	int i;
-
-	i = 0;
-	//up
-	while (i < size)
-	{
-		if (x + i >= 0 && x + i < dna->map.w && y >= 0)
-		{
-			dna->area[x + i][y].score = score;
-		}
-		if (x + i >= 0 && x + i < dna->map.w && y + size - 1 < dna->map.h)
-		{
-			dna->area[x + i][y + size - 1].score = score;
-		}
-		if (x >= 0 && y + i < dna->map.h && y + i >= 0)
-		{
-			dna->area[x][y + i].score = score;
-		}
-		if (x + size < dna->map.w && y + i < dna->map.h && y + i >= 0)
-		{
-			dna->area[x + size][y + i].score = score;
-		}
-		i++;
-	}
-	i = 0;
-	//left
-
-	//right
-
-	//down
-
-}
-
-void	wave(t_fil *dna, int x, int y, int score)
-{
-	int size;
-	int i;
-	int j;
-	int o;
-	int tmp;
-
-	i = 1;
-	j = 0;
-	o = 0;
-	size = 50;
-
-	while (i < size)
-	{
-		// dprintf(2, "1/2 = %d\n", 1/2);
-		make_square(dna, x - i, y - i, (i * 2) + 1, score - i);
-		i++;
-
-		//1 * 2 + 1 = 3
-		//2 * 2 + 1 = 5
-		//3*2+1 = 7
-		// tmp = x - (size/2);
-		// if (tmp + i < dna->map.w && tmp >= 0)
-		// 	dna->area[x - (size/2) + i][y].sign = '4';
-		// i++;
-	}
 
 
 
-}
 
 //je veux dessiner un carre dont l origine est son centre en gros
 //les coordonnes x et y sont toujours les memes  mais j ai besoin d avoir la position de la premiere ligne en x et y
@@ -247,9 +184,7 @@ void	pars_map(t_fil *dna, char **line)
 	while (y < dna->map.h)
 	{
 
-		//dprintf(2, "tmp => %s\n", tmp);
 
-		// dprintf(2, "Segfault here 1\n");
 		tmp = *line + 4;
 		// dprintf(2, "x => %d\n", x);
 		// dprintf(2, "y => %d\n", y);
@@ -354,9 +289,7 @@ void	parsing(t_fil *dna, char **line)
 {
 	//ft_putstr_fd(*line, dna->debug_fd);
 	// pars_player(dna, line);
-	dprintf(2, "Search segfault in parsing => 1\n");
 	pars_map(dna, line);
-	dprintf(2, "Search segfault in parsing => 2\n");
 	// pars_game(dna, line);
 	dprintf(2, "Exit pars_map\n");
 	pars_piece(dna, line);
