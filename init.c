@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 20:02:18 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 02:25:30 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@ void	init_dna(t_fil *dna)
 {
 	dna->player = 0;
 	dna->area = NULL;
+	dna->move.x = 0;
+	dna->move.y = 0;
+	dna->move.score = 0;
 
 }

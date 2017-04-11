@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/09 23:02:17 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/10 18:17:09 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ typedef struct s_map
 		int h;
 }t_map;
 
+typedef struct s_move
+{
+	int x;
+	int y;
+	int score;
+
+}t_move;
+
 typedef struct s_piece
 {
 		int w;
@@ -60,6 +68,7 @@ typedef struct		s_fil
 	t_map map;
 	t_case **area;
 	t_piece piece;
+	t_move move;
 	int** map_score;
 	char enemy_char;
 	char player_char;
