@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 12:56:58 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 15:46:49 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ void	check_move(t_fil *dna);
 void	debug_score_map(t_fil *dna);
 void	wave(t_fil *dna, int x, int y, int score);
 void	diagonale(t_fil *dna);
+void	reset(t_fil *dna);
+void	corner(t_fil *dna);
 
 #endif

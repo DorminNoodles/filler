@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 12:20:14 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 15:33:47 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ int		main(void)
 		dprintf(2, "Search segfault 1\n");
 		if (!dna.area)
 			init_game(&dna, &line);
+		reset(&dna);
 		dprintf(2, "test w=> %d\n", dna.map.w);
 		dprintf(2, "test h=> %d\n", dna.map.h);
 		dprintf(2, "test player=> %d\n", dna.player);

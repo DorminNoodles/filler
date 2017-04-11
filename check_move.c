@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 12:30:13 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/11 15:23:28 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ void 	debug_show_piece(t_fil *dna)
 		dprintf(2, "\n");
 		y++;
 	}
+}
+
+int		check_contact(t_fil *dna, int x, int y, int score)
+{
+	if (y - 1 >= 0 && dna->area[x][y - 1].sign == dna->player_char)
+		score *= 0.85;
+
+	if (y + 1 < dna->map.h && dna->area[x][y + 1].sign == dna->player_char)
+		score *= 0.85;
+
+	if (x - 1 >= 0 && dna->area[x - 1][y].sign == dna->player_char)
+		score *= 0.85;
+
+	if (x + 1 < dna->map.w && dna->area[x + 1][y].sign == dna->player_char)
+		score *= 0.85;
+
+	return (score);
 }
 
 int		test_each_block(t_fil *dna, int tabx, int taby)
@@ -61,6 +78,7 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 				if (dna->area[tabx + x][taby + y].sign == dna->player_char)
 					weld++;
 				score += dna->area[tabx + x][taby + y].score;
+				score = check_contact(dna, tabx + x, tabx + y, score);
 			}
 			x++;
 		}
