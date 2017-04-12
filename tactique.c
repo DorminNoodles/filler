@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:34:47 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 16:05:34 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 17:48:31 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	make_square(t_fil *dna, int x, int y, int size, int score)
 
 	i = 0;
 	//up
+
 	while (i < size)
 	{
 		if (x + i >= 0 && x + i < dna->map.w && y >= 0)
@@ -35,14 +36,13 @@ void	make_square(t_fil *dna, int x, int y, int size, int score)
 			if (dna->area[x][y + i].score < score)
 				dna->area[x][y + i].score = score;
 		}
-		if (x + size < dna->map.w && y + i < dna->map.h && y + i >= 0)
+		if (x + size <= dna->map.w && y + i < dna->map.h && y + i >= 0)
 		{
-			if (dna->area[x + size][y + i].score < score)
-				dna->area[x + size][y + i].score = score;
+			if (dna->area[x + size - 1][y + i].score < score)
+				dna->area[x + size - 1][y + i].score = score;
 		}
 		i++;
 	}
-	i = 0;
 
 }
 
@@ -93,7 +93,11 @@ void	wave(t_fil *dna, int x, int y, int score)
 	o = 0;
 	size = 50;
 
+	// dprintf(2, "WAVE !!!!! \n");
+
+
 	dna->area[x][y].score = score;
+
 	while (i < size)
 	{
 		// dprintf(2, "1/2 = %d\n", 1/2);
@@ -144,14 +148,30 @@ void	diagonale(t_fil *dna)
 void	corner(t_fil *dna)
 {
 	// if (dna->area[dna->map.w -2][2].sign == '.')
-		wave(dna, dna->map.w - 1, 0, 100);
+		//wave(dna, dna->map.w - 1, 0, 100);
+	//
+	//if (dna->area[(dna->map.w / 2) + 5][dna->map.h - 1].sign == '.')
 
-	if (dna->area[dna->map.w / 2][dna->map.h].sign == '.' &&
-		dna->area[dna->map.w / 2 + 1][dna->map.h].sign == '.' &&
-		dna->area[dna->map.w / 2 - 1][dna->map.h].sign == '.')
-		wave(dna, dna->map.w / 2, dna->map.h - 1, 120);
+	//check_liberty(dna);
+
+	if (dna->area[(dna->map.w / 2) + 5][0].sign == '.')
+	{
+		wave(dna, (dna->map.w / 2) + 5, 0, 120);
+	}
+	else if (dna->area[(dna->map.w / 2) + 5][dna->map.h - 1].sign == '.')
+	{
+		wave(dna, (dna->map.w / 2) + 5, dna->map.h - 1, 120);
+	}
+	else if (dna->area[0][dna->map.h / 2 + 5].sign == '.')
+	{
+		wave(dna, 0, dna->map.h / 2 + 5, 120);
+	}
+	else if (dna->area[(dna->map.w / 2)][dna->map.h / 2].sign == '.')
+	{
+		wave(dna, (dna->map.w / 2), dna->map.h / 2, 120);
+	}
 
 	// if (dna->area[dna->map.w - 2][dna->map.h - 1].sign == '.' &&
 	// dna->area[dna->map.w - 1][dna->map.h - 3].sign == '.' )
-	// 	wave(dna, dna->map.w - 1, dna->map.h - 2, 200);
+	// wave(dna, dna->map.w - 1, dna->map.h - 2, 200);
 }

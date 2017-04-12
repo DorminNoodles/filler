@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 15:23:28 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:08:22 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,54 @@ void 	debug_show_piece(t_fil *dna)
 	}
 }
 
+void	check_sign()
+{
+
+}
+
+void	draw_ray(t_fil *dna, void (*fptr)())
+{
+
+
+}
+
+void	check_liberty(t_fil *dna)
+{
+	draw_ray(dna, &check_sign);
+
+
+}
+
+// int		check_contact(t_fil *dna, int x, int y, int score)
+// {
+// 	if (y - 1 >= 0 && dna->area[x][y - 1].sign == dna->player_char)
+// 		score *= 0.85;
+//
+// 	if (y + 1 < dna->map.h && dna->area[x][y + 1].sign == dna->player_char)
+// 		score *= 0.85;
+//
+// 	if (x - 1 >= 0 && dna->area[x - 1][y].sign == dna->player_char)
+// 		score *= 0.85;
+//
+// 	if (x + 1 < dna->map.w && dna->area[x + 1][y].sign == dna->player_char)
+// 		score *= 0.85;
+//
+// 	return (score);
+// }
+
 int		check_contact(t_fil *dna, int x, int y, int score)
 {
-	if (y - 1 >= 0 && dna->area[x][y - 1].sign == dna->player_char)
-		score *= 0.85;
+	if (y - 1 >= 0 && dna->area[x][y - 1].sign != dna->player_char)
+		score += 0;
 
-	if (y + 1 < dna->map.h && dna->area[x][y + 1].sign == dna->player_char)
-		score *= 0.85;
+	if (y + 1 < dna->map.h && dna->area[x][y + 1].sign != dna->player_char)
+		score += 0;
 
-	if (x - 1 >= 0 && dna->area[x - 1][y].sign == dna->player_char)
-		score *= 0.85;
+	if (x - 1 >= 0 && dna->area[x - 1][y].sign != dna->player_char)
+		score += 0;
 
-	if (x + 1 < dna->map.w && dna->area[x + 1][y].sign == dna->player_char)
-		score *= 0.85;
+	if (x + 1 < dna->map.w && dna->area[x + 1][y].sign != dna->player_char)
+		score += 0;
 
 	return (score);
 }
@@ -90,7 +125,7 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 	{
 		// dprintf(2, "Find Move x %d  y %d  \n", tabx, taby);
 		// dprintf(2, "Score = > %d  \n", score);
-		return (score);
+		return ((score) ? score : 1);
 	}
 	else
 	{

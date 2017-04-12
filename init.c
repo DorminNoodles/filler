@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 15:31:55 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 17:59:34 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	init_dna(t_fil *dna)
 	dna->move.x = 0;
 	dna->move.y = 0;
 	dna->move.score = 0;
+	dna->startx = 5;
+	dna->starty = 0;
+
 
 }
 
@@ -29,6 +32,7 @@ void	reset_score(t_fil *dna)
 
 	y = 0;
 	x = 0;
+
 
 	while (y < dna->map.h)
 	{

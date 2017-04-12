@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 12:35:57 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:10:39 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,15 +141,15 @@ void	add_piece(t_fil *dna, int x, int y, char c)
 	{
 		//dprintf(2, "new piece !\n");
 		dna->area[x][y].sign = dna->enemy_char;
-		dna->area[x][y].score = 50;
-		wave(dna, x, y, 50);
+		//dna->area[x][y].score = 50;
+		//wave(dna, x, y, 50);
 
 	}
 	if (dna->area[x][y].sign != c && c == dna->player_char)
 	{
 		//dprintf(2, "new piece !\n");
 		dna->area[x][y].sign = dna->player_char;
-		dna->area[x][y].score = 0;
+		//dna->area[x][y].score = 0;
 
 	}
 	// dna->area[x][y].sign = c;
@@ -285,6 +285,37 @@ void	pars_piece(t_fil *dna, char **line)
 // 	}
 // }
 //
+
+void	start_pos(t_fil *dna)
+{
+	int x;
+	int y;
+	int find;
+
+	y = 0;
+	x = 0;
+	find = 0;
+
+
+	while (y < dna->map.h && !find)
+	{
+		x = 0;
+		while (x < dna->map.w && !find)
+		{
+			if (dna->area[x][y].sign == dna->player_char)
+			{
+				dna->startx = x;
+				dna->starty = y;
+					dprintf(2, "######################### x = %d\n", x);
+					dprintf(2, "######################### y = %d\n", y);
+				find = 1;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
 void	parsing(t_fil *dna, char **line)
 {
 	//ft_putstr_fd(*line, dna->debug_fd);
@@ -302,6 +333,14 @@ void	parsing(t_fil *dna, char **line)
 	//pars_piece(dna, line);
 	// ft_putchar_fd('\n', dna->debug_fd);
 	//ft_putstr_fd(*line, dna->debug_fd);
+	dprintf(2, "SEGFAULT 1\n");
+	start_pos(dna);
+	dprintf(2, "######################### %d\n", dna->startx);
+
+	dprintf(2, "######################### %d\n", dna->starty);
+	// dna->startx = 6;
+
+	dprintf(2, "SEGFAULT 2\n");
 	ft_putstr_fd("EXIT_PARSING\n", dna->debug_fd);
 }
 

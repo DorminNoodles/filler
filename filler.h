@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/11 15:46:49 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:06:41 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct		s_fil
 {
 	int debug_fd;
 	int player;
+	int startx;
+	int starty;
 	t_map map;
 	t_case **area;
 	t_piece piece;
@@ -91,5 +93,6 @@ void	wave(t_fil *dna, int x, int y, int score);
 void	diagonale(t_fil *dna);
 void	reset(t_fil *dna);
 void	corner(t_fil *dna);
+void	check_liberty(t_fil *dna);
 
 #endif
