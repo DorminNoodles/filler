@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 17:57:01 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 23:34:01 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ void debug_show_3(t_fil *dna)
 
 void	play(t_fil *dna)
 {
+	int tab[3] = {0, 0, 0};
+
+
 	dprintf(2, "ENTER PLAY\n");
 	//diagonale(dna);
 	corner(dna);
-	dprintf(2, "SEGFAULT 3\n");
 
-	//wave(dna, dna->map.w /2, dna->map.h - 1, 120);
-
-	//dna->area[5][5].score = 666;
+	tab[0] = check_liberty(dna, dna->map.w / 2, 0);
+	dprintf(2, "TAB TAB TAB => %d\n", tab[0]);
 
 	debug_score_map(dna);
-	dprintf(2, "SEGFAULT 4\n");
 	check_move(dna);
 
 }

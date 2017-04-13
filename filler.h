@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 18:06:41 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 23:14:10 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,13 @@ void	wave(t_fil *dna, int x, int y, int score);
 void	diagonale(t_fil *dna);
 void	reset(t_fil *dna);
 void	corner(t_fil *dna);
-void	check_liberty(t_fil *dna);
+int		check_liberty(t_fil *dna, int x, int y);
+void	init_game(t_fil *dna, char **line);
+void	get_players(t_fil *dna, char **line);
+void	get_map_size(t_fil *dna, char **line);
+void	create_area(t_fil *dna, char **line);
+void	debug_show_area(t_fil *dna);
+
+
 
 #endif

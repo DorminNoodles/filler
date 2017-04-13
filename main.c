@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 17:49:14 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 23:32:08 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,17 +125,6 @@ void	init_area(t_fil *dna, char **line)
 
 }
 
-void	init_game(t_fil *dna, char **line)
-{
-	init_dna(dna);
-	get_players(dna, line);
-	get_map_size(dna, line);
-	create_area(dna, line);
-	debug_show_area(dna);
-	//init_area(dna, line);
-
-}
-
 char	**create_matrice(int w, int h)
 {
 	char **plato;
@@ -189,14 +178,6 @@ int		main(void)
 		dprintf(2, "test player=> %d\n", dna.player);
 		parsing(&dna, &line);
 		dprintf(2, "Search segfault 2\n");
-		// ft_putstr_fd(line, dna.debug_fd);
-		// ft_putstr_fd("\n", dna.debug_fd);
-		// parsing(&dna, &line);
-		// ft_putstr_fd("Putain de merde\n", dna.debug_fd);
-		dprintf(2, "Fuck\n");
-		// dprintf(2, "20 23\n");
-		// dprintf(1, "20 23\n");
-		//dprintf(1, "23 20\n");
 		play(&dna);
 		// free(line);
 	}

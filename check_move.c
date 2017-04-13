@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 18:08:22 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/13 02:07:30 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,84 @@ void	draw_ray(t_fil *dna, void (*fptr)())
 {
 
 
+
+
 }
 
-void	check_liberty(t_fil *dna)
+int		check_liberty(t_fil *dna, int x, int y)
 {
-	draw_ray(dna, &check_sign);
+	int length;
+	int lengthx;
+	int lengthy;
+	int i;
+	int j;
+	int indice;
+	int libre;
+	int deltax;
+	int deltay;
+
+	i = 0;
+	j = 0;
+	indice = 0;
+	length = 0;
+	lengthx = 0;
+	lengthy = 0;
+	libre = 1;
 
 
+	lengthx = x - dna->startx;
+	lengthy = y - dna->starty;
+	if (lengthx < 0)
+		lengthx *= -1;
+	if (lengthy < 0)
+		lengthy *= -1;
+
+	if (lengthx < lengthy)
+	{
+		length = lengthy;
+		indice = lengthy / lengthx;
+	}
+	else
+	{
+		length = lengthx;
+		indice = lengthx / lengthy;
+	}
+
+	deltax = x - dna->startx / length;
+	deltay = y - dna->starty / length;
+		dprintf(2, "deltax => %d\n", deltax);
+		dprintf(2, "deltay => %d\n", deltay);
+
+	y = 0;
+	while (i < length)
+	{
+		dprintf(2, "check liberty i => %d\n", dna->starty + i);
+
+
+		// if (lengthx < lengthy)
+		// {
+		// 	if (dna->area[dna->startx + i][dna->starty + (i / indice)].sign == dna->enemy_char)
+		// 		libre = 0;
+		// }
+		// else
+		// {
+		// 	//dprintf(2, "CHECK_LIBERTY => x = %d   y = %d\n", dna->startx + (i / indice), dna->starty + i);
+		// 	if (dna->area[dna->startx + (i / indice)][dna->starty + i].sign == dna->enemy_char)
+		// 		libre = 0;
+		// }
+
+
+		y += deltay;
+		i++;
+	}
+
+	return (libre);
+//ca marche pas bordel
+/*
+
+
+
+*/
 }
 
 // int		check_contact(t_fil *dna, int x, int y, int score)
@@ -171,10 +242,6 @@ void	check_move(t_fil *dna)
 					dna->move.x = x;
 					dna->move.y = y;
 				}
-			// 	dprintf(2, "Good Pos\n");
-			// 	dprintf(2, "%d %d\n", y, x);
-			// 	dprintf(1, "%d %d\n", y, x);
-			// 	test = 1;
 			}
 			x++;
 		}
@@ -191,7 +258,5 @@ void	check_move(t_fil *dna)
 
 	// dprintf(2, "while y => %d\n", y);
 	dprintf(2, "END CHECK_MOVE\n");
-
-
 
 }

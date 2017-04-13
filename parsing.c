@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 18:10:39 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/12 23:30:10 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,6 @@ void	pars_map(t_fil *dna, char **line)
 	tmp = NULL;
 	while (!ft_strstr(*line, "000 "))
 	{
-		dprintf(2, "Here !\n");
 		ft_memdel((void**)line);
 		get_next_line(0, line);
 		//dprintf(2, "line => %s\n", *line);
@@ -296,6 +295,8 @@ void	start_pos(t_fil *dna)
 	x = 0;
 	find = 0;
 
+	if (dna->startx != 0 && dna->starty != 0)
+		return;
 
 	while (y < dna->map.h && !find)
 	{
@@ -334,11 +335,13 @@ void	parsing(t_fil *dna, char **line)
 	// ft_putchar_fd('\n', dna->debug_fd);
 	//ft_putstr_fd(*line, dna->debug_fd);
 	dprintf(2, "SEGFAULT 1\n");
-	start_pos(dna);
+
 	dprintf(2, "######################### %d\n", dna->startx);
 
 	dprintf(2, "######################### %d\n", dna->starty);
 	// dna->startx = 6;
+
+	start_pos(dna);
 
 	dprintf(2, "SEGFAULT 2\n");
 	ft_putstr_fd("EXIT_PARSING\n", dna->debug_fd);
