@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 23:32:08 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/13 17:48:01 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ int		main(void)
 		if (!dna.area)
 			init_game(&dna, &line);
 		reset(&dna);
-		debug_score_map(&dna);
+		// debug_score_map(&dna);
 		dprintf(2, "test w=> %d\n", dna.map.w);
 		dprintf(2, "test h=> %d\n", dna.map.h);
 		dprintf(2, "test player=> %d\n", dna.player);

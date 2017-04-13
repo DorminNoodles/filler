@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/13 02:07:30 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/13 18:31:36 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,80 +44,74 @@ void	draw_ray(t_fil *dna, void (*fptr)())
 
 }
 
-int		check_liberty(t_fil *dna, int x, int y)
+int		get_length(t_fil *dna, int x, int y)
 {
-	int length;
 	int lengthx;
 	int lengthy;
-	int i;
-	int j;
-	int indice;
-	int libre;
-	int deltax;
-	int deltay;
-
-	i = 0;
-	j = 0;
-	indice = 0;
-	length = 0;
-	lengthx = 0;
-	lengthy = 0;
-	libre = 1;
-
 
 	lengthx = x - dna->startx;
 	lengthy = y - dna->starty;
+
 	if (lengthx < 0)
 		lengthx *= -1;
 	if (lengthy < 0)
 		lengthy *= -1;
 
-	if (lengthx < lengthy)
-	{
-		length = lengthy;
-		indice = lengthy / lengthx;
-	}
+	if (lengthx > lengthy)
+		return (lengthx);
 	else
+		return (lengthy);
+}
+
+int		get_indice(t_fil *dna, int length, int div)
+{
+
+	if (length < 0)
+		length *= -1;
+	if (div < 0)
+	 div *= -1;
+
+	 dprintf(2, "get_indice length => %d\n", length);
+	 dprintf(2, "get_indice div => %d\n", div);
+		//dprintf(2, "length => %d\n", length);
+	return (length / div);
+
+}
+
+int		check_liberty(t_fil *dna, int endx, int endy)
+{
+	int i;
+	int	max_length;
+	float	deltax;
+	float	deltay;
+	float	x;
+	float	y;
+
+	i = 0;
+	x = dna->startx;
+	y = dna->starty;
+
+	max_length = get_length(dna, endx, endy);
+
+	deltax = (endx - dna->startx) / (float)max_length;
+	deltay = (endy - dna->starty) / (float)max_length;
+
+	dprintf(2, "deltay => %f\n", deltay);
+	dprintf(2, "max_length => %d\n", max_length);
+	dprintf(2, "SEGFAULT SEARCH\n");
+
+	while (i < (int)max_length)
 	{
-		length = lengthx;
-		indice = lengthx / lengthy;
-	}
-
-	deltax = x - dna->startx / length;
-	deltay = y - dna->starty / length;
-		dprintf(2, "deltax => %d\n", deltax);
-		dprintf(2, "deltay => %d\n", deltay);
-
-	y = 0;
-	while (i < length)
-	{
-		dprintf(2, "check liberty i => %d\n", dna->starty + i);
-
-
-		// if (lengthx < lengthy)
-		// {
-		// 	if (dna->area[dna->startx + i][dna->starty + (i / indice)].sign == dna->enemy_char)
-		// 		libre = 0;
-		// }
-		// else
-		// {
-		// 	//dprintf(2, "CHECK_LIBERTY => x = %d   y = %d\n", dna->startx + (i / indice), dna->starty + i);
-		// 	if (dna->area[dna->startx + (i / indice)][dna->starty + i].sign == dna->enemy_char)
-		// 		libre = 0;
-		// }
-
-
+		dprintf(2, "HERE > x %f   y %f\n", x, y);
+		if (dna->area[(int)x][(int)y].sign == dna->enemy_char)
+			return (0);
 		y += deltay;
+		x += deltax;
 		i++;
 	}
+	dprintf(2, "SEGFAULT SEARCH\n");
 
-	return (libre);
-//ca marche pas bordel
-/*
-
-
-
-*/
+	return (1);
 }
 
 // int		check_contact(t_fil *dna, int x, int y, int score)
@@ -234,7 +228,6 @@ void	check_move(t_fil *dna)
 		{
 			if ((score = test_each_block(dna, x, y)))
 			{
-				dprintf(2, "dna => %d\n", dna->move.score);
 				if (score > dna->move.score)
 				{
 					// dprintf(2, "More scoring\n");

@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:34:47 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 17:48:31 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/13 18:39:32 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,8 @@ void	diagonale(t_fil *dna)
 
 void	corner(t_fil *dna)
 {
+	int liberty[3] = {0, 0, 0};
+
 	// if (dna->area[dna->map.w -2][2].sign == '.')
 		//wave(dna, dna->map.w - 1, 0, 100);
 	//
@@ -154,20 +156,26 @@ void	corner(t_fil *dna)
 
 	//check_liberty(dna);
 
-	if (dna->area[(dna->map.w / 2) + 5][0].sign == '.')
+	liberty[0] = check_liberty(dna, (dna->map.w / 2) + 5, 0);
+
+	if (liberty[0] && dna->area[(dna->map.w / 2) + 5][0].sign == '.')
 	{
+		dprintf(2, "UP OK ! ##############################################\n");
 		wave(dna, (dna->map.w / 2) + 5, 0, 120);
 	}
 	else if (dna->area[(dna->map.w / 2) + 5][dna->map.h - 1].sign == '.')
 	{
+		dprintf(2, "BOTTOM OK ! ##############################################\n");
 		wave(dna, (dna->map.w / 2) + 5, dna->map.h - 1, 120);
 	}
-	else if (dna->area[0][dna->map.h / 2 + 5].sign == '.')
+	else if (dna->area[0][dna->map.h].sign == '.')
 	{
-		wave(dna, 0, dna->map.h / 2 + 5, 120);
+		dprintf(2, "BOTTOM LEFT OK ! ##############################################\n");
+		wave(dna, 0, dna->map.h, 120);
 	}
 	else if (dna->area[(dna->map.w / 2)][dna->map.h / 2].sign == '.')
 	{
+		dprintf(2, "BOTTOM RIGHT OK ! ##############################################\n");
 		wave(dna, (dna->map.w / 2), dna->map.h / 2, 120);
 	}
 
