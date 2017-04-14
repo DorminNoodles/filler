@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/13 21:08:29 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/14 17:34:16 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,11 +178,9 @@ void	pars_map(t_fil *dna, char **line)
 	}
 	dprintf(2, "tmp => %s\n", *line);
 	//dprintf(2, "%s\n", *line);
-	dprintf(2, "Search segfault in %s => 2\n", __func__);
+	//dprintf(2, "Search segfault in %s => 2\n", __func__);
 	while (y < dna->map.h)
 	{
-
-
 		tmp = *line + 4;
 		// dprintf(2, "x => %d\n", x);
 		// dprintf(2, "y => %d\n", y);

@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:34:47 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/13 21:35:23 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/14 22:19:44 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,15 +168,30 @@ void	corner(t_fil *dna)
 		dprintf(2, "UP OK ! ##############################################\n");
 		wave(dna, (dna->map.w / 2) + 5, 0, 120);
 	}
-	else if (tab[2] && dna->area[10][dna->map.h - 1].sign == '.')
+	else if (tab[1] && dna->area[dna->map.w / 2][dna->map.h / 2].sign == '.')
 	{
-		dprintf(2, "BOTTOM LEFT OK ! ##############################################\n");
-		wave(dna, 10, dna->map.h - 1, 120);
+		dprintf(2, "MIDDLE OK ! ############################################\n");
+		wave(dna, dna->map.w / 2, dna->map.h / 2, 120);
+	}
+	else if (tab[1] && dna->area[(dna->map.w / 2) + 5][dna->map.h - 10].sign == '.')
+	{
+		dprintf(2, "LIGHT BOTTOM OK ! ##############################################\n");
+		wave(dna, (dna->map.w / 2) + 5, dna->map.h - 10, 120);
 	}
 	else if (tab[1] && dna->area[(dna->map.w / 2) + 5][dna->map.h - 1].sign == '.')
 	{
 		dprintf(2, "BOTTOM OK ! ##############################################\n");
 		wave(dna, (dna->map.w / 2) + 5, dna->map.h - 1, 120);
+	}
+	else if (tab[2] && dna->area[6][dna->map.h - 1].sign == '.')
+	{
+		dprintf(2, "LEFT MIDDLE OK ! ##############################################\n");
+		wave(dna, 6, dna->map.h - 1, 120);
+	}
+	else if (tab[2] && dna->area[0][dna->map.h / 2].sign == '.')
+	{
+		dprintf(2, "LEFT LIGHT BOTTOM OK ! ##############################################\n");
+		wave(dna, 0, dna->map.h / 2, 120);
 	}
 	else if (dna->area[(dna->map.w / 2)][dna->map.h / 2].sign == '.')
 	{
