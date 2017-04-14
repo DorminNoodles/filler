@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/13 18:31:36 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/13 21:17:15 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int		check_liberty(t_fil *dna, int endx, int endy)
 
 	while (i < (int)max_length)
 	{
-		dprintf(2, "HERE > x %f   y %f\n", x, y);
+		// dprintf(2, "HERE > x %f   y %f\n", x, y);
 		if (dna->area[(int)x][(int)y].sign == dna->enemy_char)
 			return (0);
 		y += deltay;

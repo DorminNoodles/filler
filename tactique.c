@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:34:47 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/13 18:39:32 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/13 21:35:23 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ void	diagonale(t_fil *dna)
 
 void	corner(t_fil *dna)
 {
-	int liberty[3] = {0, 0, 0};
+	int tab[3] = {0, 0, 0};
 
 	// if (dna->area[dna->map.w -2][2].sign == '.')
 		//wave(dna, dna->map.w - 1, 0, 100);
@@ -156,22 +156,27 @@ void	corner(t_fil *dna)
 
 	//check_liberty(dna);
 
-	liberty[0] = check_liberty(dna, (dna->map.w / 2) + 5, 0);
+	dprintf(2, "KAMELOTT => %c\n", dna->area[0][dna->map.h].sign);
+	dprintf(2, "KAMELOTT => %d\n", dna->map.h);
 
-	if (liberty[0] && dna->area[(dna->map.w / 2) + 5][0].sign == '.')
+	tab[0] = check_liberty(dna, (dna->map.w / 2) + 5, 0);
+	tab[1] = check_liberty(dna, (dna->map.w / 2) + 5, dna->map.h - 1);
+	tab[2] = check_liberty(dna, 10, dna->map.h -1);
+
+	if (tab[0] && dna->area[(dna->map.w / 2) + 5][0].sign == '.')
 	{
 		dprintf(2, "UP OK ! ##############################################\n");
 		wave(dna, (dna->map.w / 2) + 5, 0, 120);
 	}
-	else if (dna->area[(dna->map.w / 2) + 5][dna->map.h - 1].sign == '.')
+	else if (tab[2] && dna->area[10][dna->map.h - 1].sign == '.')
+	{
+		dprintf(2, "BOTTOM LEFT OK ! ##############################################\n");
+		wave(dna, 10, dna->map.h - 1, 120);
+	}
+	else if (tab[1] && dna->area[(dna->map.w / 2) + 5][dna->map.h - 1].sign == '.')
 	{
 		dprintf(2, "BOTTOM OK ! ##############################################\n");
 		wave(dna, (dna->map.w / 2) + 5, dna->map.h - 1, 120);
-	}
-	else if (dna->area[0][dna->map.h].sign == '.')
-	{
-		dprintf(2, "BOTTOM LEFT OK ! ##############################################\n");
-		wave(dna, 0, dna->map.h, 120);
 	}
 	else if (dna->area[(dna->map.w / 2)][dna->map.h / 2].sign == '.')
 	{
@@ -183,3 +188,12 @@ void	corner(t_fil *dna)
 	// dna->area[dna->map.w - 1][dna->map.h - 3].sign == '.' )
 	// wave(dna, dna->map.w - 1, dna->map.h - 2, 200);
 }
+
+/*
+En fait je devrais faire un algo qui regarde si poser la piece dans une direction
+nous fait gagner une plus grande distance que si on essaye vers une autre direction
+
+En gros on a deux direction et on pose la piece au benefice de celle ou on gagnera
+le plus de terrain
+
+*/

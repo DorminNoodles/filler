@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 23:30:10 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/13 21:08:29 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ void	add_piece(t_fil *dna, int x, int y, char c)
 		dna->area[x][y].sign = dna->enemy_char;
 		//dna->area[x][y].score = 50;
 		//wave(dna, x, y, 50);
-
 	}
 	if (dna->area[x][y].sign != c && c == dna->player_char)
 	{
