@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:34:47 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/14 22:19:44 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/16 01:44:19 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,11 +173,16 @@ void	corner(t_fil *dna)
 		dprintf(2, "MIDDLE OK ! ############################################\n");
 		wave(dna, dna->map.w / 2, dna->map.h / 2, 120);
 	}
-	else if (tab[1] && dna->area[(dna->map.w / 2) + 5][dna->map.h - 10].sign == '.')
-	{
-		dprintf(2, "LIGHT BOTTOM OK ! ##############################################\n");
-		wave(dna, (dna->map.w / 2) + 5, dna->map.h - 10, 120);
-	}
+	// else if (tab[1] && dna->area[dna->map.w / 2][(dna->map.h / 2) + 6].sign == '.')
+	// {
+	// 	dprintf(2, "MIDDLE BOTTOM OK ! ############################################\n");
+	// 	wave(dna, dna->map.w / 2, (dna->map.h / 2) + 6, 120);
+	// }
+	// else if (tab[1] && dna->area[(dna->map.w / 2) + 5][dna->map.h - 10].sign == '.')
+	// {
+	// 	dprintf(2, "LIGHT BOTTOM OK ! ##############################################\n");
+	// 	wave(dna, (dna->map.w / 2) + 5, dna->map.h - 10, 120);
+	// }
 	else if (tab[1] && dna->area[(dna->map.w / 2) + 5][dna->map.h - 1].sign == '.')
 	{
 		dprintf(2, "BOTTOM OK ! ##############################################\n");
