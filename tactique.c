@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:34:47 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/16 14:52:00 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/16 19:06:50 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,40 +201,91 @@ void	diagonale(t_fil *dna)
 // }
 
 
-int		upper(t_fil *dna)
+int		upper(t_fil *dna, char c)
 {
-	int i;
-	int j;
+	int x;
+	int y;
 
-	i = 0;
-	j = 0;
+	x = 0;
+	y = 0;
 
-	while (i < dna->map.h)
+	while (y < dna->map.h)
 	{
-		while (j < dna->map.w)
+		// dprintf(2, "#%d#\n", y);
+		x = 0;
+		while (x < dna->map.w)
 		{
-			if (dna->area[i][j].sign == dna->enemy_char)
-				return (i);
-			j++;
+			if (dna->area[x][y].sign == c)
+				return (y);
+			x++;
 		}
-		i++;
+		y++;
 	}
 	return (0);
 }
 
-void	find_bounds(t_fil *dna, int bounds[])
+int		lower(t_fil *dna, char c)
 {
-	//*bounds[0] = upper(dna);
-	dprintf(2, "pouet");
+	int x;
+	int y;
+
+	x = 0;
+	y = dna->map.h - 1;
+
+	while (y >= 0)
+	{
+		x = 0;
+		while (x < dna->map.w)
+		{
+			if (dna->area[x][y].sign == c)
+				return (y);
+			x++;
+		}
+		y--;
+	}
+	return (0);
+}
+
+int		right(t_fil *dna, char c)
+{
+	int x;
+	int y;
+
+	x = dna->map.w - 1;
+	y = 0;
+
+	while (x >= 0)
+	{
+		y = 0;
+		while (y < dna->map.h)
+		{
+			if (dna->area[x][y].sign == c)
+				return (x);
+			y++;
+		}
+		x--;
+	}
+	return (0);
+}
+
+void	find_bounds(t_fil *dna, int bounds[], char c)
+{
+	bounds[0] = upper(dna, c);
+	bounds[1] = lower(dna, c);
+	bounds[2] = right(dna, c);
 }
 
 
 void	corner(t_fil *dna)
 {
-	int tab[3] = {0, 0, 0};
-	int bounds[6] = {0, 0, 0, 0, 0, 0};
+	int tab[6] = {0, 0, 0};
+	int bounds_enemy[6] = {0, 0, 0, 0, 0, 0};
+	int bounds_player[6] = {0, 0, 0, 0, 0, 0};
 	//int test[];
+	find_bounds(dna, bounds_enemy, dna->enemy_char);
 
+	dprintf(2, "######################TEST_BOUNDS => %d\n", bounds_enemy[2]);
+	find_bounds(dna, bounds_player, dna->player_char);
 	// if (dna->area[dna->map.w -2][2].sign == '.')
 		//wave(dna, dna->map.w - 1, 0, 100);
 	//
@@ -242,20 +293,62 @@ void	corner(t_fil *dna)
 
 	//check_liberty(dna);
 
-	dprintf(2, "KAMELOTT => %c\n", dna->area[0][dna->map.h].sign);
-	dprintf(2, "KAMELOTT => %d\n", dna->map.h);
+	//dprintf(2, "KAMELOTT => %c\n", dna->area[0][dna->map.h].sign);
+	//dprintf(2, "KAMELOTT => %d\n", dna->map.h);
 
-	tab[0] = check_liberty(dna, (dna->map.w / 2) + 5, 0);
-	tab[1] = check_liberty(dna, (dna->map.w / 2) + 5, dna->map.h - 1);
-	tab[2] = check_liberty(dna, 10, dna->map.h -1);
+	tab[0] = check_liberty(dna, dna->map.w / 2, dna->map.h / 2 + 5);
+	tab[1] = check_liberty(dna, dna->map.w / 2 - 5, dna->map.h / 2 + 5);
+	tab[2] = check_liberty(dna, 0, dna->map.h / 2);
+	tab[3] = check_liberty(dna, dna->map.w / 2, dna->map.h - 1);
+	tab[4] = check_liberty(dna, dna->map.w / 2 + 5, 0);
+	tab[5] = check_liberty(dna, 0, dna->map.h);
+	//tab[2] = check_liberty(dna, 10, dna->map.h -1);
 
-	if (tab[1] && dna->area[dna->map.w / 2 + 4][dna->map.h / 2 + 4].sign == '.')
+	// if (tab[1] && dna->area[dna->map.w / 2 + 4][dna->map.h / 2 + 4].sign == '.')
+	// {
+	// 	dprintf(2, "CLOSE MIDDLE OK ! ############################################\n");
+	// 	wave(dna, dna->map.w / 2 + 4, dna->map.h / 2 + 4, 120);
+	// }
+
+	dprintf(2, "bounds_enemy => %d\n", bounds_enemy[1]);
+	dprintf(2, "bounds_player => %d\n", bounds_player[1]);
+
+	if (tab[4] && dna->area[dna->map.w / 2][0].sign == '.' && bounds_enemy[0] < bounds_player[0] && bounds_enemy[2] > 10)
 	{
-		dprintf(2, "CLOSE MIDDLE OK ! ############################################\n");
-		wave(dna, dna->map.w / 2 + 4, dna->map.h / 2 + 4, 120);
+		dprintf(2, "UP OK ! ############################################\n");
+		wave(dna, dna->map.w / 2, 0, 120);
+	}
+	else if (dna->area[dna->map.w / 2][dna->map.h - 1].sign == '.' && bounds_enemy[1] > bounds_player[1])
+	{
+		dprintf(2, "DOWN OK ! ############################################\n");
+		wave(dna, dna->map.w / 2, dna->map.h - 1, 120);
+	}
+	else if (tab[0] && dna->area[dna->map.w / 2][dna->map.h / 2 + 5].sign == '.')
+	{
+		dprintf(2, "GO MIDDLE ! ############################################\n");
+		wave(dna, dna->map.w / 2, dna->map.h / 2 + 5, 120);
+	}
+	// else if (tab[0] && dna->area[dna->map.w / 2 - 5][dna->map.h / 2 + 5].sign == '.')
+	// {
+	// 	dprintf(2, "GO MORE MIDDLE ! ############################################\n");
+	// 	wave(dna, dna->map.w / 2, dna->map.h / 2 - 5, 120);
+	// }
+	else if (tab[3] && dna->area[dna->map.w / 2][dna->map.h - 1].sign == '.')
+	{
+		dprintf(2, "GO MORE MIDDLE ! ############################################\n");
+		wave(dna, dna->map.w / 2, dna->map.h - 1, 120);
+	}
+	else if (tab[2] && dna->area[0][dna->map.h / 2].sign == '.')
+	{
+		dprintf(2, "GO MORE MIDDLE ! ############################################\n");
+		wave(dna, 0, dna->map.h / 2, 120);
+	}
+	else if (tab[5] && dna->area[0][dna->map.h - 1].sign == '.')
+	{
+		dprintf(2, "LEFT BOTTOM CORNER ! ############################################\n");
+		wave(dna, 0, dna->map.h -1, 120);
 	}
 
-	find_bounds(dna, bounds);
 
 
 	//if (lower())

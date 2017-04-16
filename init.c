@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/12 22:13:11 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/16 15:03:21 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_game(t_fil *dna, char **line)
 {
-	dprintf(2, "000000 MARIO 000000\n");
+	// dprintf(2, "000000 MARIO 000000\n");
 	init_dna(dna);
 	get_players(dna, line);
 	get_map_size(dna, line);

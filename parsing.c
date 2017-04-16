@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/14 17:34:16 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/16 15:04:41 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,24 +263,6 @@ void	pars_piece(t_fil *dna, char **line)
 	// debug_show_piece(dna);
 
 }
-//
-// void	pars_player(t_fil *dna, char **line)
-// {
-// 	dprintf(dna->debug_fd, "HAAAAAAAAAAAAAHAHAHAHAHAHAH\n", dna->enemy_char);
-// 	if (ft_strstr(*line, "exec p1"))
-// 	{
-// 		dna->player = 1;
-// 		dna->player_char = 'O';
-// 		dna->enemy_char = 'X';
-// 	}
-// 	else if (ft_strstr(*line, "exec p2"))
-// 	{
-// 		dna->player = 2;
-// 		dna->player_char = 'X';
-// 		dna->enemy_char = 'O';
-// 	}
-// }
-//
 
 void	start_pos(t_fil *dna)
 {
@@ -304,8 +286,8 @@ void	start_pos(t_fil *dna)
 			{
 				dna->startx = x;
 				dna->starty = y;
-					dprintf(2, "######################### x = %d\n", x);
-					dprintf(2, "######################### y = %d\n", y);
+					// dprintf(2, "######################### x = %d\n", x);
+					// dprintf(2, "######################### y = %d\n", y);
 				find = 1;
 			}
 			x++;
