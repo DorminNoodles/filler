@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:34:47 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/16 19:06:50 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/17 11:58:39 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -300,7 +300,7 @@ void	corner(t_fil *dna)
 	tab[1] = check_liberty(dna, dna->map.w / 2 - 5, dna->map.h / 2 + 5);
 	tab[2] = check_liberty(dna, 0, dna->map.h / 2);
 	tab[3] = check_liberty(dna, dna->map.w / 2, dna->map.h - 1);
-	tab[4] = check_liberty(dna, dna->map.w / 2 + 5, 0);
+	tab[4] = check_liberty(dna, dna->map.w / 2, 0);
 	tab[5] = check_liberty(dna, 0, dna->map.h);
 	//tab[2] = check_liberty(dna, 10, dna->map.h -1);
 
@@ -313,7 +313,10 @@ void	corner(t_fil *dna)
 	dprintf(2, "bounds_enemy => %d\n", bounds_enemy[1]);
 	dprintf(2, "bounds_player => %d\n", bounds_player[1]);
 
-	if (tab[4] && dna->area[dna->map.w / 2][0].sign == '.' && bounds_enemy[0] < bounds_player[0] && bounds_enemy[2] > 10)
+
+	dprintf(2, "tab4 => %d\n", tab[4]);
+	dprintf(2, "tab4 => %d\n", tab[4]);
+	if (tab[4] && dna->area[dna->map.w / 2 - 4][0].sign == '.' && bounds_enemy[0] < bounds_player[0] && bounds_enemy[2] > dna->map.w / 2 - 4)
 	{
 		dprintf(2, "UP OK ! ############################################\n");
 		wave(dna, dna->map.w / 2, 0, 120);
@@ -347,6 +350,11 @@ void	corner(t_fil *dna)
 	{
 		dprintf(2, "LEFT BOTTOM CORNER ! ############################################\n");
 		wave(dna, 0, dna->map.h -1, 120);
+	}
+	else if (dna->area[dna->map.w - 1][dna->map.h - 1].sign == '.')
+	{
+		dprintf(2, "RIGHT BOTTOM CORNER ! ############################################\n");
+		wave(dna, dna->map.w - 1, dna->map.h - 1, 120);
 	}
 
 
