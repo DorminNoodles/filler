@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/20 19:19:31 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/21 00:19:22 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 #define DOWN 0, 1
 #define LEFT 1, 0
 #define RIGHT 0, 1
+#define CLEAR 0
+#define OPEN 1
+#define CLOSED 2
 
 typedef struct s_vect
 {
@@ -40,6 +43,7 @@ typedef struct s_vect
 typedef struct s_node
 {
 	t_vect pos;
+	int state;
 	int ok;
 	int g;
 	int h;

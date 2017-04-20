@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 13:57:16 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/20 19:26:16 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/21 01:43:36 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,22 +175,48 @@ void	nodes_cost(t_fil *dna, t_node *tmp)
 //
 // 	debug_path_map(dna);
 // }
-int		check_node(t_fil *dna, t_vect cur, t_vect dir)
+
+int		count_g(t_fil *dna)
 {
+
+	return (0);
+}
+
+int		count_h(t_fil *dna)
+{
+
+	return (0);
+}
+
+int		count_f(t_fil *dna, t_vect parent, t_vect cur)
+{
+	//calculer f grace a g et h
+	return (count_g(dna) + count_h(dna));
+}
+
+void	check_node(t_fil *dna, t_vect parent, t_vect dir)
+{
+	int score;
 	int x;
 	int y;
 
-	x = cur.x + dir.x;
-	y = cur.y + dir.y;
+	x = parent.x + dir.x;
+	y = parent.y + dir.y;
+	score = 0;
 
 	if (x >= 0 && x < dna->map.w && y >= 0 && y < dna->map.h)
-		return (0);
+		return;
 	if (dna->area[x][y].sign == dna->enemy_char)
-		return (0);
+		return;
+	if (dna->area[x][y].node.state == CLOSED)
+		return;
+	if (dna->area[x][y].node.state == OPEN)
+	{
+		score = count_f(dna, parent);
+
+	}
 
 	// dprintf(2, "fuck +>>>>>>>>%d\n", dir.y);
-
-	return (1);
 }
 
 void	near_nodes(t_fil *dna, t_vect cur)
