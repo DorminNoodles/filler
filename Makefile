@@ -9,7 +9,9 @@ SRC =	main.c							\
 		score_map.c						\
 		check_move.c					\
 		debug.c							\
-		tactique.c
+		tactique.c						\
+		pathfinding.c					\
+		vector.c
 
 INC =	libft/includes
 

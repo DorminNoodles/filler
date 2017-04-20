@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/13 21:09:37 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/20 19:19:31 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,33 @@
 
 #define BUFFER_PIECE 64
 #define DIAGONALE 90
+#define UP 0, -1
+#define DOWN 0, 1
+#define LEFT 1, 0
+#define RIGHT 0, 1
+
+typedef struct s_vect
+{
+	int x;
+	int y;
+}t_vect;
+
+typedef struct s_node
+{
+	t_vect pos;
+	int ok;
+	int g;
+	int h;
+	int f;
+}t_node;
 
 typedef struct	s_case
 {
 	char sign;
+	char path;
 	int score;
 	int active;
-
+	t_node node;
 }t_case;
 
 typedef struct s_bloc
@@ -75,6 +95,10 @@ typedef struct		s_fil
 	int** map_score;
 	char enemy_char;
 	char player_char;
+	t_vect from;
+	t_vect goal;
+
+
 
 }t_fil;
 
@@ -99,6 +123,9 @@ void	get_players(t_fil *dna, char **line);
 void	get_map_size(t_fil *dna, char **line);
 void	create_area(t_fil *dna, char **line);
 void	debug_show_area(t_fil *dna);
+t_vect	vect(int x, int y);
+void	pathfinding(t_fil *dna);
+void	debug_path_map(t_fil *dna);
 
 
 

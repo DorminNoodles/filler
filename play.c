@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/13 21:21:28 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/20 14:53:57 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	play(t_fil *dna)
 
 
 	dprintf(2, "ENTER PLAY\n");
+	pathfinding(dna);
 	//diagonale(dna);
 
 	// if (tab[0])

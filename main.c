@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/16 15:03:27 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/20 16:36:48 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void	create_area(t_fil *dna, char **line)
 			area[x][y].sign = '.';
 			area[x][y].score = 0;
 			area[x][y].active = 1;
+			area[x][y].path = '.';
 			y++;
 		}
 		x++;
@@ -179,6 +180,7 @@ int		main(void)
 		parsing(&dna, &line);
 		dprintf(2, "Search segfault 2\n");
 		play(&dna);
+
 		// free(line);
 	}
 	close(fd);
