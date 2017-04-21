@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 13:57:16 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/21 01:43:36 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/21 17:54:16 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@
 // 	update_open(dna, cur_pos);
 //
 // }
+
+int		manhattan(t_vect a, t_vect b)
+{
+	return ((b.x - a.x) + (b.y - b.y));
+}
 
 int		node_ok(t_fil *dna, t_vect cur, t_vect dir)
 {
@@ -176,25 +181,31 @@ void	nodes_cost(t_fil *dna, t_node *tmp)
 // 	debug_path_map(dna);
 // }
 
-int		count_g(t_fil *dna)
+int		count_g(int score, t_vect parent ,t_vect pos)
 {
-
-	return (0);
+	if (pos.x != parent.x && pos.y != parent.y)
+		return (score + 14);
+	else
+		return (score + 10);
 }
 
-int		count_h(t_fil *dna)
+int		count_h(t_vect parent, t_vect cur)
 {
-
-	return (0);
+	return (manhattan(parent, cur));
 }
 
-int		count_f(t_fil *dna, t_vect parent, t_vect cur)
+int		count_f(t_fil *dna, t_vect pos, t_vect parent)
 {
+	int score;
+
+	score = dna->area[parent.x][parent.y].node.g;
 	//calculer f grace a g et h
-	return (count_g(dna) + count_h(dna));
+	return (count_g(score, parent, pos) + count_h(parent, pos));
 }
 
-void	check_node(t_fil *dna, t_vect parent, t_vect dir)
+
+
+int		check_node(t_fil *dna, t_vect parent, t_vect dir)
 {
 	int score;
 	int x;
@@ -205,40 +216,74 @@ void	check_node(t_fil *dna, t_vect parent, t_vect dir)
 	score = 0;
 
 	if (x >= 0 && x < dna->map.w && y >= 0 && y < dna->map.h)
-		return;
+		return (0);
 	if (dna->area[x][y].sign == dna->enemy_char)
-		return;
+		return (0);
 	if (dna->area[x][y].node.state == CLOSED)
-		return;
+		return (0);
 	if (dna->area[x][y].node.state == OPEN)
 	{
-		score = count_f(dna, parent);
-
+		score = count_f(dna, vect(x, y), parent);
+		return (0);
+		//dprintf(2, "MONGO => %d\n", dna->area[x][y].node.g);
 	}
 
-	// dprintf(2, "fuck +>>>>>>>>%d\n", dir.y);
+	return (1);
 }
 
-void	near_nodes(t_fil *dna, t_vect cur)
+void	add_open(t_fil *dna, t_vect parent, t_vect dir)
 {
-	check_node(dna, cur, vect(UP));
-	check_node(dna, cur, vect(DOWN));
-	check_node(dna, cur, vect(LEFT));
-	check_node(dna, cur, vect(RIGHT));
+	int x;
+	int y;
 
+	x = parent.x + dir.x;
+	y = parent.y + dir.y;
+	dna->area[x][y].node.state = OPEN;
+	dna->area[x][y].node.f = count_f(dna, pos, pos);
+}
+
+void	near_nodes(t_fil *dna, t_node *tmp, t_vect parent)
+{
+	if (check_node(dna, parent, vect(UP)))
+		add_open(dna, parent, vect(UP));
+	check_node(dna, parent, vect(DOWN));
+	{
+		tmp[1].state = OPEN;
+		tmp[1].pos.x = parent.x;
+		tmp[1].pos.y = parent.y + 1;
+	}
+	check_node(dna, parent, vect(LEFT));
+	{
+		tmp[2].state = OPEN;
+		tmp[2].pos.x = parent.x - 1;
+		tmp[2].pos.y = parent.y;
+	}
+	check_node(dna, parent, vect(RIGHT));
+	{
+		tmp[3].state = OPEN;
+		tmp[3].pos.x = parent.x + 1;
+		tmp[3].pos.y = parent.y;
+	}
 }
 
 void	pathfinding(t_fil *dna)
 {
+	t_node tmp[4];
 	t_vect cur;
 
 	cur.x = dna->from.x;
 	cur.y = dna->from.y;
 
 	//trouver les noeuds proches et les mettre en openlist
-	near_nodes(dna, cur);
+	near_nodes(dna, tmp, cur);
+
+	//dprintf(2, "KONG => %d\n", tmp[0].state);
+
+	//recalculer tous les noeuds dans open ou garder une liste des nouveaux
+	//et faire les updates quand necessaire
 
 
 
+	//cur = best_node(dna, cur);
 
 }

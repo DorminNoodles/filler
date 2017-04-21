@@ -28,20 +28,20 @@ line => 004 .................
 line => 005 .................
 line => 006 .................
 line => 007 .................
-line => 008 ..OO.............
-line => 009 .................
+line => 008 ..O..............
+line => 009 ..O..............
 line => 010 .................
 line => 011 .................
 line => 012 ..............X..
 line => 013 .................
 line => 014 .................
-line => Piece 2 3:
+line => Piece 2 2:
 Exit pars_map
 Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-..*
-..*
+C est moi => Piece 2 2:
+C est moi => Piece 2 2:
+.*
+.*
 END PARS PIECE
 SEGFAULT 1
 ######################### 0
@@ -49,8 +49,7 @@ SEGFAULT 1
 SEGFAULT 2
 Search segfault 2
 ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 3
+######################TEST_BOUNDS => 2
 deltay => 0.000000
 max_length => 6
 SEGFAULT SEARCH
@@ -61,6 +60,7 @@ SEGFAULT SEARCH
 SEGFAULT SEARCH
 deltay => -0.357143
 max_length => 14
+SEGFAULT SEARCH
 SEGFAULT SEARCH
 deltay => 0.333333
 max_length => 6
@@ -74,15 +74,14 @@ deltay => 0.214286
 max_length => 14
 SEGFAULT SEARCH
 SEGFAULT SEARCH
-bounds_enemy => 8
+bounds_enemy => 9
 bounds_player => 12
 tab4 => 1
 tab4 => 1
-GO MIDDLE ! ############################################
-..*
-..*
+.*
+.*
 ENTER CHECK_MOVE
-best => 11 12
+best => 11 13
 END CHECK_MOVE
 Search segfault 1
 test w=> 17
@@ -97,20 +96,20 @@ line => 004 .................
 line => 005 .................
 line => 006 .................
 line => 007 .................
-line => 008 ..OOO............
-line => 009 .................
+line => 008 ..O..............
+line => 009 ..OO.............
 line => 010 .................
 line => 011 ..............X..
 line => 012 ..............X..
 line => 013 .................
 line => 014 .................
-line => Piece 2 2:
+line => Piece 2 3:
 Exit pars_map
 Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-**
-**
+C est moi => Piece 2 3:
+C est moi => Piece 2 3:
+.*.
+.**
 END PARS PIECE
 SEGFAULT 1
 ######################### 14
@@ -118,7 +117,74 @@ SEGFAULT 1
 SEGFAULT 2
 Search segfault 2
 ENTER PLAY
-fuck +>>>>>>>>-1
+######################TEST_BOUNDS => 3
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+bounds_enemy => 9
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+.*.
+.**
+ENTER CHECK_MOVE
+best => 10 12
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 .............X...
+line => 011 .............XX..
+line => 012 ..............X..
+line => 013 .................
+line => 014 .................
+line => Piece 2 1:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 2 1:
+C est moi => Piece 2 1:
+*
+*
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
 ######################TEST_BOUNDS => 4
 deltay => 0.000000
 max_length => 6
@@ -143,15 +209,14 @@ deltay => 0.214286
 max_length => 14
 SEGFAULT SEARCH
 SEGFAULT SEARCH
-bounds_enemy => 8
+bounds_enemy => 9
 bounds_player => 12
 tab4 => 1
 tab4 => 1
-GO MIDDLE ! ############################################
-**
-**
+*
+*
 ENTER CHECK_MOVE
-best => 10 13
+best => 10 14
 END CHECK_MOVE
 Search segfault 1
 test w=> 17
@@ -166,20 +231,19 @@ line => 004 .................
 line => 005 .................
 line => 006 .................
 line => 007 .................
-line => 008 ..OOOOO..........
-line => 009 .................
-line => 010 .............XX..
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OO.......XX..
 line => 011 .............XX..
 line => 012 ..............X..
 line => 013 .................
 line => 014 .................
-line => Piece 2 2:
+line => Piece 1 3:
 Exit pars_map
 Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-.*
-**
+C est moi => Piece 1 3:
+C est moi => Piece 1 3:
+**.
 END PARS PIECE
 SEGFAULT 1
 ######################### 14
@@ -187,7 +251,73 @@ SEGFAULT 1
 SEGFAULT 2
 Search segfault 2
 ENTER PLAY
-fuck +>>>>>>>>-1
+######################TEST_BOUNDS => 5
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+bounds_enemy => 10
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+**.
+ENTER CHECK_MOVE
+best => 11 12
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOO......XX..
+line => 011 ............XXX..
+line => 012 ..............X..
+line => 013 .................
+line => 014 .................
+line => Piece 2 3:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 2 3:
+C est moi => Piece 2 3:
+**.
+...
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
 ######################TEST_BOUNDS => 6
 deltay => 0.000000
 max_length => 6
@@ -212,15 +342,15 @@ deltay => 0.214286
 max_length => 14
 SEGFAULT SEARCH
 SEGFAULT SEARCH
-bounds_enemy => 8
+bounds_enemy => 10
 bounds_player => 12
 tab4 => 1
 tab4 => 1
 UP OK ! ############################################
-.*
-**
+**.
+...
 ENTER CHECK_MOVE
-best => 9 12
+best => 11 11
 END CHECK_MOVE
 Search segfault 1
 test w=> 17
@@ -235,20 +365,20 @@ line => 004 .................
 line => 005 .................
 line => 006 .................
 line => 007 .................
-line => 008 ..OOOOOO.........
-line => 009 .............X...
-line => 010 ............XXX..
-line => 011 .............XX..
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOO......XX..
+line => 011 .....OOO...XXXX..
 line => 012 ..............X..
 line => 013 .................
 line => 014 .................
-line => Piece 2 3:
+line => Piece 2 2:
 Exit pars_map
 Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-..*
-.**
+C est moi => Piece 2 2:
+C est moi => Piece 2 2:
+*.
+**
 END PARS PIECE
 SEGFAULT 1
 ######################### 14
@@ -256,7 +386,6 @@ SEGFAULT 1
 SEGFAULT 2
 Search segfault 2
 ENTER PLAY
-fuck +>>>>>>>>-1
 ######################TEST_BOUNDS => 7
 deltay => 0.000000
 max_length => 6
@@ -281,15 +410,15 @@ deltay => 0.214286
 max_length => 14
 SEGFAULT SEARCH
 SEGFAULT SEARCH
-bounds_enemy => 8
+bounds_enemy => 11
 bounds_player => 12
 tab4 => 1
 tab4 => 1
 UP OK ! ############################################
-..*
-.**
+*.
+**
 ENTER CHECK_MOVE
-best => 8 11
+best => 10 10
 END CHECK_MOVE
 Search segfault 1
 test w=> 17
@@ -304,10 +433,10 @@ line => 004 .................
 line => 005 .................
 line => 006 .................
 line => 007 .................
-line => 008 ..OOOOOOO....X...
-line => 009 ............XX...
-line => 010 ............XXX..
-line => 011 .............XX..
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOO...X..XX..
+line => 011 .....OOOOOXXXXX..
 line => 012 ..............X..
 line => 013 .................
 line => 014 .................
@@ -324,144 +453,6 @@ SEGFAULT 1
 SEGFAULT 2
 Search segfault 2
 ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 8
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 8
-bounds_player => 12
-tab4 => 1
-tab4 => 1
-GO MIDDLE ! ############################################
-.**
-ENTER CHECK_MOVE
-best => 9 10
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 .................
-line => 007 .................
-line => 008 ..OOOOOOO....X...
-line => 009 ........O..XXX...
-line => 010 ............XXX..
-line => 011 .............XX..
-line => 012 ..............X..
-line => 013 .................
-line => 014 .................
-line => Piece 2 1:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 1:
-C est moi => Piece 2 1:
-*
-*
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 8
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 9
-bounds_player => 12
-tab4 => 1
-tab4 => 1
-GO MIDDLE ! ############################################
-*
-*
-ENTER CHECK_MOVE
-best => 9 11
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 .................
-line => 007 .................
-line => 008 ..OOOOOOOO...X...
-line => 009 ........O..XXX...
-line => 010 ...........XXXX..
-line => 011 .............XX..
-line => 012 ..............X..
-line => 013 .................
-line => 014 .................
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-**.
-***
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
 ######################TEST_BOUNDS => 9
 deltay => 0.000000
 max_length => 6
@@ -486,2192 +477,11 @@ deltay => 0.214286
 max_length => 14
 SEGFAULT SEARCH
 SEGFAULT SEARCH
-bounds_enemy => 9
-bounds_player => 12
-tab4 => 1
-tab4 => 1
-GO MIDDLE ! ############################################
-**.
-***
-ENTER CHECK_MOVE
-best => 9 9
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 .................
-line => 007 .................
-line => 008 ..OOOOOOOO...X...
-line => 009 .......OOXXXXX...
-line => 010 .......OOXXXXXX..
-line => 011 .............XX..
-line => 012 ..............X..
-line => 013 .................
-line => 014 .................
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 9
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 10
-bounds_player => 12
-tab4 => 1
-tab4 => 1
-GO MIDDLE ! ############################################
-**
-ENTER CHECK_MOVE
-best => 8 12
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 .................
-line => 007 ..........O......
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 .......OOXXXXXX..
-line => 011 .............XX..
-line => 012 ..............X..
-line => 013 .................
-line => 014 .................
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-*.
-*.
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 11
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 10
+bounds_enemy => 11
 bounds_player => 12
 tab4 => 1
 tab4 => 1
 UP OK ! ############################################
-*.
-*.
-ENTER CHECK_MOVE
-best => 7 12
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 .................
-line => 007 ..........O.X....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 .............XX..
-line => 012 ..............X..
-line => 013 .................
-line => 014 .................
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-.**
-**.
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 11
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 10
-bounds_player => 12
-tab4 => 1
-tab4 => 1
-GO MIDDLE ! ############################################
-.**
-**.
-ENTER CHECK_MOVE
-best => 11 11
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 ...........O.....
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 ............XXX..
-line => 012 ...........XX.X..
-line => 013 .................
-line => 014 .................
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-**
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 11
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 10
-bounds_player => 12
-tab4 => 0
-tab4 => 0
-GO MIDDLE ! ############################################
-**
-**
-ENTER CHECK_MOVE
-best => 11 10
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 ...........O.....
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 .......OOOXXXXX..
-line => 012 ..........XXX.X..
-line => 013 .................
-line => 014 .................
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-*..
-*..
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 11
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 11
-bounds_player => 12
-tab4 => 0
-tab4 => 0
-GO MIDDLE ! ############################################
-*..
-*..
-ENTER CHECK_MOVE
-best => 12 10
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 ...........OO....
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 .......OOOXXXXX..
-line => 012 ..........XXX.X..
-line => 013 ..........X......
-line => 014 .................
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 12
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 11
-bounds_player => 13
-tab4 => 0
-tab4 => 0
-GO MIDDLE ! ############################################
-**
-ENTER CHECK_MOVE
-best => 12 9
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .................
-line => 006 ...........OO....
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 .........XXXX.X..
-line => 013 ..........X......
-line => 014 .................
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 12
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 11
-bounds_player => 13
-tab4 => 0
-tab4 => 0
-GO MIDDLE ! ############################################
-**
-ENTER CHECK_MOVE
-best => 12 8
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .............OO..
-line => 006 ...........OOO...
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 ........XXXXX.X..
-line => 013 ..........X......
-line => 014 .................
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-***
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 14
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 11
-bounds_player => 13
-tab4 => 0
-tab4 => 0
-GO MORE MIDDLE ! ############################################
-***
-ENTER CHECK_MOVE
-best => 13 8
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .............OO..
-line => 006 ...........OOO...
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 ......OOXXXXX.X..
-line => 013 ........XXX......
-line => 014 .................
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 14
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 13
-tab4 => 0
-tab4 => 0
-GO MORE MIDDLE ! ############################################
-.**
-ENTER CHECK_MOVE
-best => 13 6
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .............OOO.
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .......OOXXXXX...
-line => 010 ......OOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 ......OOXXXXX.X..
-line => 013 .......XXXX......
-line => 014 .................
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 15
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 13
-tab4 => 0
-tab4 => 0
-GO MORE MIDDLE ! ############################################
-**
-ENTER CHECK_MOVE
-best => 13 6
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .............OOO.
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .....OOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 ......OOXXXXX.X..
-line => 013 ......XXXXX......
-line => 014 .................
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-.*
-.*
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 15
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 13
-tab4 => 0
-tab4 => 0
-GO MORE MIDDLE ! ############################################
-.*
-.*
-ENTER CHECK_MOVE
-best => 13 7
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .....OOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 ......OOXXXXX.X..
-line => 013 ......XXXXX......
-line => 014 ........X........
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-***
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-***
-ENTER CHECK_MOVE
-best => 13 4
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 .................
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .....OOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 .....OOOXXXXX.X..
-line => 013 ....XXXXXXX......
-line => 014 ........X........
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-*..
-*..
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-*..
-*..
-ENTER CHECK_MOVE
-best => 12 4
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 ................O
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .....OOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ......OOOOXXXXX..
-line => 012 ....XOOOXXXXX.X..
-line => 013 ....XXXXXXX......
-line => 014 ........X........
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-.*.
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-.*.
-.**
-ENTER CHECK_MOVE
-best => 11 2
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 .................
-line => 004 ................O
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .....OOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ...X.OOOOOXXXXX..
-line => 012 ...XXOOOXXXXX.X..
-line => 013 ....XXXXXXX......
-line => 014 ........X........
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-**
-ENTER CHECK_MOVE
-best => 12 2
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 ................O
-line => 004 ................O
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 .....OOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ...X.OOOOOXXXXX..
-line => 012 ..XXXOOOXXXXX.X..
-line => 013 ....XXXXXXX......
-line => 014 ........X........
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-***
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-***
-ENTER CHECK_MOVE
-best => 12 0
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 .................
-line => 003 ................O
-line => 004 ................O
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 ..OOOOOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ...X.OOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 ....XXXXXXX......
-line => 014 ........X........
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-**
-..
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-**
-..
-ENTER CHECK_MOVE
-best => 11 2
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ................O
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 ..OOOOOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ..XX.OOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 ....XXXXXXX......
-line => 014 ........X........
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-*.
-*.
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-*.
-*.
-ENTER CHECK_MOVE
-best => 12 0
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ................O
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 ..OOOOOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX......
-line => 014 ........X........
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-*.
-*.
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-LEFT BOTTOM CORNER ! ############################################
-*.
-*.
-ENTER CHECK_MOVE
-best => 13 0
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 ..OOOOOOOXXXXX...
-line => 010 .....OOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX......
-line => 014 X.......X........
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-*..
-*..
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-RIGHT BOTTOM CORNER ! ############################################
-*..
-*..
-ENTER CHECK_MOVE
-best => 12 14
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOO.O.
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 ..OOOOOOOXXXXX...
-line => 010 ....OOOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...X..
-line => 014 X.......X........
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-**.
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-RIGHT BOTTOM CORNER ! ############################################
-**.
-.**
-ENTER CHECK_MOVE
-best => 13 14
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOO.OO
-line => 007 ..........OOX....
-line => 008 ..OOOOOOOOOOXX...
-line => 009 ..OOOOOOOXXXXX...
-line => 010 ....OOOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-**
-ENTER CHECK_MOVE
-best => 7 12
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 .................
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOO.OO
-line => 007 ..........OOXX...
-line => 008 ..OOOOOOOOOOXX...
-line => 009 ..OOOOOOOXXXXX...
-line => 010 ...OOOOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-***
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-***
-.**
-ENTER CHECK_MOVE
-best => 7 13
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 ...............O.
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOO.OO
-line => 007 ..........OOXXXX.
-line => 008 ..OOOOOOOOOOXXXX.
-line => 009 ..OOOOOOOXXXXX...
-line => 010 ...OOOOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 2 1:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 1:
-C est moi => Piece 2 1:
-*
-*
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-*
-*
-ENTER CHECK_MOVE
-best => 6 14
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 .................
-line => 001 ...............O.
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ..........OOXXXX.
-line => 008 ..OOOOOOOOOOXXXX.
-line => 009 .OOOOOOOOXXXXX...
-line => 010 OO.OOOOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 2 1:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 1:
-C est moi => Piece 2 1:
-*
-*
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-*
-*
-ENTER CHECK_MOVE
-best => 8 14
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ...............OO
-line => 001 ...............OO
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ..........OOXXXX.
-line => 008 ..OOOOOOOOOOXXXX.
-line => 009 .OOOOOOOOXXXXXX..
-line => 010 OO.OOOOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 2 1:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 1:
-C est moi => Piece 2 1:
-*
-*
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-*
-*
-ENTER CHECK_MOVE
-best => 8 15
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ...............OO
-line => 001 ...............OO
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ..........OOXXXX.
-line => 008 OOOOOOOOOOOOXXXX.
-line => 009 OOOOOOOOOXXXXXXX.
-line => 010 OO.OOOOOOXXXXXX..
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-*.
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-*.
-**
-ENTER CHECK_MOVE
-best => 9 15
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ...............OO
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ..........OOXXXX.
-line => 008 OOOOOOOOOOOOXXXX.
-line => 009 OOOOOOOOOXXXXXXX.
-line => 010 OO.OOOOOOXXXXXXXX
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-**
-ENTER CHECK_MOVE
-best => 7 15
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ...............OO
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ..........OOXXXXX
-line => 008 OOOOOOOOOOOOXXXX.
-line => 009 OOOOOOOOOXXXXXXX.
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 ..XXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-***
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-***
-ENTER CHECK_MOVE
-best => 11 0
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ..............OOO
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ..........OOXXXXX
-line => 008 OOOOOOOOOOOOXXXX.
-line => 009 OOOOOOOOOXXXXXXX.
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-.**
-ENTER CHECK_MOVE
-best => 8 14
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ..............OOO
-line => 002 ...............OO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ........OOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXX.
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXX.X..
-line => 013 X...XXXXXXX...XX.
-line => 014 X.......X......XX
-line => Piece 2 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 2:
-C est moi => Piece 2 2:
-**
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-**
-**
-ENTER CHECK_MOVE
-best => 12 12
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ..............OOO
-line => 002 .............OOOO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ........OOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXX.
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXXXX..
-line => 013 X...XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-**
-ENTER CHECK_MOVE
-best => 9 15
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ..............OOO
-line => 002 .............OOOO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ......OOOOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXXX
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXX..
-line => 012 XXXXXOOOXXXXXXX..
-line => 013 X...XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
 .**
 ENTER CHECK_MOVE
 best => 11 13
@@ -2681,27 +491,27 @@ test w=> 17
 test h=> 15
 test player=> 2
 Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ............OOOOO
-line => 002 ............OOOOO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 ...........OOOXOO
-line => 007 ......OOOOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXXX
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXXX.
-line => 012 XXXXXOOOXXXXXXX..
-line => 013 X...XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 1 2:
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOO...X..XX..
+line => 011 .....OOOOOXXXXXX.
+line => 012 .........O....X..
+line => 013 .................
+line => 014 .................
+line => Piece 1 3:
 Exit pars_map
 Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
-**
+C est moi => Piece 1 3:
+C est moi => Piece 1 3:
+***
 END PARS PIECE
 SEGFAULT 1
 ######################### 14
@@ -2709,11 +519,9 @@ SEGFAULT 1
 SEGFAULT 2
 Search segfault 2
 ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
+######################TEST_BOUNDS => 9
 deltay => 0.000000
 max_length => 6
-SEGFAULT SEARCH
 SEGFAULT SEARCH
 deltay => 0.000000
 max_length => 11
@@ -2728,14 +536,397 @@ SEGFAULT SEARCH
 deltay => -1.000000
 max_length => 12
 SEGFAULT SEARCH
+SEGFAULT SEARCH
 deltay => 0.214286
 max_length => 14
 SEGFAULT SEARCH
 SEGFAULT SEARCH
 bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+***
+ENTER CHECK_MOVE
+best => 10 8
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOO.XXX..XX..
+line => 011 .....OOOOOXXXXXX.
+line => 012 .........OO...X..
+line => 013 .................
+line => 014 .................
+line => Piece 2 2:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 2 2:
+C est moi => Piece 2 2:
+**
+**
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
+######################TEST_BOUNDS => 10
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+bounds_enemy => 12
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+**
+**
+ENTER CHECK_MOVE
+best => 10 15
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOO.XXX..XXXX
+line => 011 .....OOOOOXXXXXXX
+line => 012 .........OOO..X..
+line => 013 .................
+line => 014 .................
+line => Piece 1 3:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 1 3:
+C est moi => Piece 1 3:
+.**
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
+######################TEST_BOUNDS => 11
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+bounds_enemy => 12
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+.**
+ENTER CHECK_MOVE
+best => 10 6
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOOXXXX..XXXX
+line => 011 .....OOOOOXXXXXXX
+line => 012 .........OOOO.X..
+line => 013 .................
+line => 014 .................
+line => Piece 2 2:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 2 2:
+C est moi => Piece 2 2:
+**
+..
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
+######################TEST_BOUNDS => 12
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+bounds_enemy => 12
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+**
+..
+ENTER CHECK_MOVE
+best => 10 10
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOOXXXXX.XXXX
+line => 011 .....OOOOOXXXXXXX
+line => 012 .........OOOO.X..
+line => 013 ............O....
+line => 014 .................
+line => Piece 1 2:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 1 2:
+C est moi => Piece 1 2:
+**
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
+######################TEST_BOUNDS => 12
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+bounds_enemy => 13
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+**
+ENTER CHECK_MOVE
+best => 10 11
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOOXXXXXXXXXX
+line => 011 .....OOOOOXXXXXXX
+line => 012 .........OOOOOX..
+line => 013 ............O....
+line => 014 .................
+line => Piece 2 1:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 2 1:
+C est moi => Piece 2 1:
+*
+*
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
+######################TEST_BOUNDS => 13
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+bounds_enemy => 13
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+*
+*
+ENTER CHECK_MOVE
+best => 11 15
+END CHECK_MOVE
+Search segfault 1
+test w=> 17
+test h=> 15
+test player=> 2
+Search segfault in pars_map => 1
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOOXXXXXXXXXX
+line => 011 .....OOOOOXXXXXXX
+line => 012 .........OOOOOXX.
+line => 013 ............OOO..
+line => 014 .................
+line => Piece 2 2:
+Exit pars_map
+Parsing Piece
+C est moi => Piece 2 2:
+C est moi => Piece 2 2:
+..
+**
+END PARS PIECE
+SEGFAULT 1
+######################### 14
+######################### 12
+SEGFAULT 2
+Search segfault 2
+ENTER PLAY
+######################TEST_BOUNDS => 14
+deltay => 0.000000
+max_length => 6
+SEGFAULT SEARCH
+deltay => 0.000000
+max_length => 11
+SEGFAULT SEARCH
+deltay => -0.357143
+max_length => 14
+SEGFAULT SEARCH
+deltay => 0.333333
+max_length => 6
+SEGFAULT SEARCH
+deltay => -1.000000
+max_length => 12
+SEGFAULT SEARCH
+SEGFAULT SEARCH
+deltay => 0.214286
+max_length => 14
+SEGFAULT SEARCH
+bounds_enemy => 13
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
+..
 **
 ENTER CHECK_MOVE
 best => 11 15
@@ -2745,157 +936,28 @@ test w=> 17
 test h=> 15
 test player=> 2
 Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ............OOOOO
-line => 002 ............OOOOO
-line => 003 ...............OO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 .....OO....OOOXOO
-line => 007 ....OOOOOOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXXX
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXXXX
-line => 012 XXXXXOOOXXXXXXX..
-line => 013 X...XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 1 3:
+tmp => 000 .................
+line => 001 .................
+line => 002 .................
+line => 003 .................
+line => 004 .................
+line => 005 .................
+line => 006 .................
+line => 007 .................
+line => 008 ..O.O............
+line => 009 ..OOO............
+line => 010 ....OOOXXXXXXXXXX
+line => 011 .....OOOOOXXXXXXX
+line => 012 .........OOOOOXXX
+line => 013 ............OOO..
+line => 014 .............OO..
+line => Piece 2 2:
 Exit pars_map
 Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-.**
-ENTER CHECK_MOVE
-best => 12 13
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ............OOOOO
-line => 002 ............OOOOO
-line => 003 ..............OOO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 .....OO....OOOXOO
-line => 007 ....OOOOOOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXXX
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXXXX
-line => 012 XXXXXOOOXXXXXXXX.
-line => 013 X...XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-...
-.**
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-...
-.**
-ENTER CHECK_MOVE
-best => 11 14
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ............OOOOO
-line => 002 ............OOOOO
-line => 003 ..............OOO
-line => 004 ...............OO
-line => 005 .............OOOO
-line => 006 .....OO....OOOXOO
-line => 007 ..OOOOOOOOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXXX
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXXXX
-line => 012 XXXXXOOOXXXXXXXXX
-line => 013 X...XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 1 2:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 2:
-C est moi => Piece 1 2:
+C est moi => Piece 2 2:
+C est moi => Piece 2 2:
 **
+..
 END PARS PIECE
 SEGFAULT 1
 ######################### 14
@@ -2903,11 +965,9 @@ SEGFAULT 1
 SEGFAULT 2
 Search segfault 2
 ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
+######################TEST_BOUNDS => 14
 deltay => 0.000000
 max_length => 6
-SEGFAULT SEARCH
 SEGFAULT SEARCH
 deltay => 0.000000
 max_length => 11
@@ -2918,149 +978,20 @@ SEGFAULT SEARCH
 deltay => 0.333333
 max_length => 6
 SEGFAULT SEARCH
-SEGFAULT SEARCH
 deltay => -1.000000
 max_length => 12
+SEGFAULT SEARCH
 SEGFAULT SEARCH
 deltay => 0.214286
 max_length => 14
 SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
+bounds_enemy => 14
+bounds_player => 12
+tab4 => 1
+tab4 => 1
+UP OK ! ############################################
 **
-ENTER CHECK_MOVE
-best => 13 0
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ............OOOOO
-line => 002 ............OOOOO
-line => 003 ..............OOO
-line => 004 ..............OOO
-line => 005 .............OOOO
-line => 006 .....OO....OOOXOO
-line => 007 ..OOOOOOOOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXXX
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXXXX
-line => 012 XXXXXOOOXXXXXXXXX
-line => 013 XX..XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 2 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 2 3:
-C est moi => Piece 2 3:
-*..
-*..
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-*..
-*..
-ENTER CHECK_MOVE
-best => 12 2
-END CHECK_MOVE
-Search segfault 1
-test w=> 17
-test h=> 15
-test player=> 2
-Search segfault in pars_map => 1
-tmp => 000 ..............OOO
-line => 001 ............OOOOO
-line => 002 ............OOOOO
-line => 003 ..............OOO
-line => 004 ..............OOO
-line => 005 .............OOOO
-line => 006 .....OO....OOOXOO
-line => 007 .OOOOOOOOOOOXXXXX
-line => 008 OOOOOOOOOOOOXXXXX
-line => 009 OOOOOOOOOXXXXXXXX
-line => 010 OOOOOOOOOXXXXXXXX
-line => 011 XXXXOOOOOOXXXXXXX
-line => 012 XXXXXOOOXXXXXXXXX
-line => 013 XXX.XXXXXXX.XXXX.
-line => 014 X.......X......XX
-line => Piece 1 3:
-Exit pars_map
-Parsing Piece
-C est moi => Piece 1 3:
-C est moi => Piece 1 3:
-***
-END PARS PIECE
-SEGFAULT 1
-######################### 14
-######################### 12
-SEGFAULT 2
-Search segfault 2
-ENTER PLAY
-fuck +>>>>>>>>-1
-######################TEST_BOUNDS => 16
-deltay => 0.000000
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => 0.000000
-max_length => 11
-SEGFAULT SEARCH
-deltay => -0.357143
-max_length => 14
-SEGFAULT SEARCH
-deltay => 0.333333
-max_length => 6
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-deltay => -1.000000
-max_length => 12
-SEGFAULT SEARCH
-deltay => 0.214286
-max_length => 14
-SEGFAULT SEARCH
-SEGFAULT SEARCH
-bounds_enemy => 12
-bounds_player => 14
-tab4 => 0
-tab4 => 0
-***
+..
 ENTER CHECK_MOVE
 best => 0 0
 END CHECK_MOVE
