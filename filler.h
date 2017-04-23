@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/21 12:23:18 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/23 19:23:23 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 #define DIAGONALE 90
 #define UP 0, -1
 #define DOWN 0, 1
-#define LEFT 1, 0
-#define RIGHT 0, 1
+#define LEFT -1, 0
+#define RIGHT 1, 0
 #define CLEAR 0
 #define OPEN 1
 #define CLOSED 2

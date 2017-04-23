@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/20 14:53:57 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/21 23:11:08 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	play(t_fil *dna)
 	//diagonale(dna);
 
 	// if (tab[0])
-	corner(dna);
 
 	// dprintf(2, "TAB TAB TAB => %d\n", tab[0]);
 

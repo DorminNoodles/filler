@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/14 22:17:48 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/22 11:09:19 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,7 +224,7 @@ void	check_move(t_fil *dna)
 	{
 		x = 0 - dna->piece.w;
 
-		while (x < dna->map.w -1 && !test)
+		while (x < dna->map.w - 1 && !test)
 		{
 			if ((score = test_each_block(dna, x, y)))
 			{

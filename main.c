@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/21 12:21:45 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/23 18:54:16 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,11 @@ void	create_area(t_fil *dna, char **line)
 			area[x][y].score = 0;
 			area[x][y].active = 1;
 			area[x][y].path = '.';
+			area[x][y].node.state = CLEAR;
+			area[x][y].node.g = 0;
+			area[x][y].node.h = 0;
+			area[x][y].node.f = 0;
+			// dprintf(2, "Taratata\n");
 			y++;
 		}
 		x++;
@@ -179,6 +184,7 @@ int		main(void)
 		dprintf(2, "test player=> %d\n", dna.player);
 		parsing(&dna, &line);
 		dprintf(2, "Search segfault 2\n");
+		//dprintf(2, "Bart => %c\n", dna.area[38][5].path);
 		play(&dna);
 
 		// free(line);
