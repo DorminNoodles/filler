@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 12:20:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/23 21:06:41 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/24 02:06:25 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void debug_path_map(t_fil *dna)
 		x = 0;
 		while (x < dna->map.w)
 		{
-			// dprintf(2, "%2c", dna->area[x][y].path);
-			dprintf(2, "%4d", dna->area[x][y].node.f);
+			dprintf(2, "%2c", dna->area[x][y].path);
+			// dprintf(2, "%4d", dna->area[x][y].node.f);
 			x++;
 		}
 		dprintf(2, "\n");

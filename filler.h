@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/23 19:23:23 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/24 01:56:18 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_vect
 
 typedef struct s_node
 {
+	t_vect parent;
 	t_vect pos;
 	int state;
 	int ok;
@@ -100,7 +101,7 @@ typedef struct		s_fil
 	char enemy_char;
 	char player_char;
 	t_vect from;
-	t_vect goal;
+	t_vect aim;
 
 
 
@@ -128,7 +129,7 @@ void	get_map_size(t_fil *dna, char **line);
 void	create_area(t_fil *dna, char **line);
 void	debug_show_area(t_fil *dna);
 t_vect	vect(int x, int y);
-void	pathfinding(t_fil *dna);
+void	pathfinding(t_fil *dna, t_vect start, t_vect aim);
 void	debug_path_map(t_fil *dna);
 
 

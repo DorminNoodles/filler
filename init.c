@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/23 21:14:26 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/24 01:57:03 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	init_dna(t_fil *dna)
 	dna->move.score = 0;
 	dna->startx = 0;
 	dna->starty = 0;
-	dna->goal.x = 20;
-	dna->goal.y = 20;
+	dna->aim.x = 20;
+	dna->aim.y = 20;
 
 }
 
@@ -80,6 +80,8 @@ void	reset(t_fil *dna)
 			dna->area[x][y].node.g = 0;
 			dna->area[x][y].node.h = 0;
 			dna->area[x][y].node.f = 0;
+			dna->area[x][y].node.parent.x = 0;
+			dna->area[x][y].node.parent.y = 0;
 			// dprintf(2, "Taratata\n");
 			y++;
 		}

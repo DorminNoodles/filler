@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/21 23:11:08 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/24 01:36:01 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ void debug_show_3(t_fil *dna)
 void	play(t_fil *dna)
 {
 
-
 	dprintf(2, "ENTER PLAY\n");
-	pathfinding(dna);
+	pathfinding(dna, vect(dna->startx, dna->starty), vect(dna->aim.x, dna->aim.y));
 	//diagonale(dna);
 
 	// if (tab[0])

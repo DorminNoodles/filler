@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 13:57:16 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/23 21:10:06 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/24 02:08:46 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ int		cost_h(t_fil *dna, t_node *node)
 
 	res = 0;
 
-	res = (node->pos.x - dna->goal.x) + (node->pos.y - dna->goal.y);
+	res = (node->pos.x - dna->aim.x) + (node->pos.y - dna->aim.y);
 
 	//dprintf(2, "TESTTTTTT +> %d\n", res);
 
@@ -182,7 +182,7 @@ void	nodes_cost(t_fil *dna, t_node *tmp)
 //
 // 	init_nodes(tmp_node);
 //
-// 	dna->goal = vect(2, 2);
+// 	dna->aim = vect(2, 2);
 // 	dna->from.x = 12;
 // 	dna->from.y = 12;
 // 	dna->area[dna->from.x][dna->from.y].path = 'A';
@@ -196,24 +196,24 @@ void	nodes_cost(t_fil *dna, t_node *tmp)
 //
 // 	debug_path_map(dna);
 // }
-
-int		count_g(t_fil *dna, t_vect parent ,t_vect pos)
-{
-	int score_parent;
-
-	score_parent = dna->area[parent.x][parent.y].node.g;
-	// dprintf(2, "score_parent => %d\n", score_parent);
-	if (pos.x != parent.x && pos.y != parent.y)
-		return (score_parent + 14);
-	else
-		return (score_parent + 10);
-}
-
-int		count_h(t_vect pos, t_vect goal)
-{
-	// dprintf(2, "COUNT_H x%d  y%d\n", pos.x, pos.y);
-	return (manhattan(pos, goal) * 10);
-}
+//
+// int		count_g(t_fil *dna, t_vect parent ,t_vect pos)
+// {
+// 	int score_parent;
+//
+// 	score_parent = dna->area[parent.x][parent.y].node.g;
+// 	// dprintf(2, "score_parent => %d\n", score_parent);
+// 	if (pos.x != parent.x && pos.y != parent.y)
+// 		return (score_parent + 14);
+// 	else
+// 		return (score_parent + 10);
+// }
+//
+// int		count_h(t_vect pos, t_vect aim)
+// {
+// 	// dprintf(2, "COUNT_H x%d  y%d\n", pos.x, pos.y);
+// 	return (manhattan(pos, aim) * 10);
+// }
 
 
 
@@ -255,26 +255,28 @@ int		check_node(t_fil *dna, t_vect parent, t_vect dir)
 
 //on push le node a ajouter dans openlist et on calcul egalement ses
 //couts (en fait on passe son statut a OPEN)
-void	add_open(t_fil *dna, t_vect parent, t_vect dir)
+void	add_open(t_fil *dna, t_vect parent, t_vect dir, t_vect aim)
 {
 	int x;
 	int y;
 	int  score_g;
 
 
-	score_g = dna->area[parent.x][parent.y].node.g;
-	score_g = (dir.x != 0 && dir.y != 0) ? 14 : 10;
-
+	// dprintf(2, "G_score => %d\n", dna->area[x][y].node.g);
 	// dprintf(2, "ADD FUCKING OPEN !\n");
 
 	x = parent.x + dir.x;
 	y = parent.y + dir.y;
 	// dprintf(2, "X %d  ,  Y %d\n", parent.x, parent.y);
 	dna->area[x][y].node.state = OPEN;
-	dna->area[x][y].node.g = count_g(dna, parent, vect(x, y));
-	// dprintf(2, "COUNT_H A x%d  y%d\n", x, y);
-	// dprintf(2, "COUNT_H B x%d  y%d\n", dna->goal.x, dna->goal.y);
-	dna->area[x][y].node.h = count_h(vect(x, y), dna->goal);
+
+	dna->area[x][y].node.parent.x = parent.x;
+	dna->area[x][y].node.parent.y = parent.y;
+	// dna->area[x][y].node.g += count_g(dna
+	dna->area[x][y].node.g = dna->area[parent.x][parent.y].node.g;
+	dna->area[x][y].node.g += (dir.x != 0 && dir.y != 0) ? 14 : 10;
+	dna->area[x][y].node.h = manhattan(vect(x, y), aim) * 10;
+	//count_h(vect(x, y), dna->aim);
 	// dprintf(2, "count h = > %d\n", dna->area[x][y].node.h);
 	// dprintf(2, "F_score => %d\n", dna->area[x][y].node.f);
 	dna->area[x][y].node.f = dna->area[x][y].node.g + dna->area[x][y].node.h;
@@ -339,25 +341,22 @@ int		best_node(t_fil *dna, t_vect *pos)
 		return (0);
 }
 
-void	near_nodes(t_fil *dna, t_node *tmp, t_vect parent)
+void	near_nodes(t_fil *dna, t_vect parent, t_vect start, t_vect aim)
 {
 	dprintf(2, "--#Enter Near Node#--\n");
-	//si check == 1 on ajoute le node a open list
-	// dprintf(2, "State please => %d\n", dna->area[parent.x][parent.y].node.state);
-	// dprintf(2, "State please => %d\n", dna->area[parent.x-1][parent.y].node.state);
-	// dprintf(2, "State please => %d\n", dna->area[parent.x+1][parent.y].node.state);
+
 
 	if (check_node(dna, parent, vect(UP)))
 	{
 		// dprintf(2, "PERSONAL COMPUTER 1\n");
-		add_open(dna, parent, vect(UP));
+		add_open(dna, parent, vect(UP), aim);
 		// dprintf(2, "x> %d  y> %d \n", parent.x + 0, parent.y + (-1));
 	}
 
 	if (check_node(dna, parent, vect(DOWN)))
 	{
 		// dprintf(2, "PERSONAL COMPUTER 2\n");
-		add_open(dna, parent, vect(DOWN));
+		add_open(dna, parent, vect(DOWN), aim);
 		// dprintf(2, "x> %d  y> %d \n", parent.x + 0, parent.y + 1);
 	}
 	// dprintf(2, "PINOCCHIO\n");
@@ -365,13 +364,13 @@ void	near_nodes(t_fil *dna, t_node *tmp, t_vect parent)
 	{
 		// dprintf(2, "GEPETTO\n");
 		// dprintf(2, "PERSONAL COMPUTER 3\n");
-		add_open(dna, parent, vect(LEFT));
+		add_open(dna, parent, vect(LEFT), aim);
 		// dprintf(2, "LEFT : x> %d  y> %d \n", parent.x + (-1), parent.y + 0);
 	}
 	if (check_node(dna, parent, vect(RIGHT)))
 	{
 		// dprintf(2, "PERSONAL COMPUTER 4\n");
-		add_open(dna, parent, vect(RIGHT));
+		add_open(dna, parent, vect(RIGHT), aim);
 	}
 
 	// if (check_node(dna, parent, vect(UP)))
@@ -385,81 +384,64 @@ void	near_nodes(t_fil *dna, t_node *tmp, t_vect parent)
 
 }
 
-void	pathfinding(t_fil *dna)
+void	rewind_path(t_fil *dna, t_vect aim, t_vect start)
 {
-	t_node tmp[4];
+	while (aim.x != start.x || aim.y != start.y)
+	{
+		dprintf(2, "Parents => x%d   y%d\n", dna->area[aim.x][aim.y].node.parent.x, dna->area[aim.x][aim.y].node.parent.y);
+		dna->area[aim.x][aim.y].score = 5;
+		dna->area[aim.x][aim.y].path = '?';
+
+		aim = dna->area[aim.x][aim.y].node.parent;
+	}
+}
+
+void	pathfinding(t_fil *dna, t_vect start, t_vect aim)
+{
 	t_vect cur;
 
 	dna->from.x = dna->startx;
 	dna->from.y = dna->starty;
 
+
 	// dprintf(2, "dna start x %d\n", dna->startx);
 	// dprintf(2, "dna start y %d\n", dna->starty);
 	// dna->area[][]
-	cur.x = dna->from.x;
-	cur.y = dna->from.y;
+	cur.x = start.x;
+	cur.y = start.y;
 
 	dna->area[dna->from.x][dna->from.y].path = 'A';
 	dprintf(2, "Start A >  x = %d   y = %d\n", cur.x, cur.y);
-	dna->area[dna->goal.x][dna->goal.y].path = 'B';
+	dna->area[dna->aim.x][dna->aim.y].path = 'B';
 	dna->area[dna->from.x][dna->from.y].node.state = CLOSED;
 
-	// dprintf(2, "Test goal=> %d  %d\n", dna->goal.x, dna->goal.y);
+	dna->area[start.x][start.y].node.parent.x = aim.x;
+	dna->area[start.x][start.y].node.parent.y = aim.y;
+	// dprintf(2, "Test aim=> %d  %d\n", dna->aim.x, dna->aim.y);
+	// dprintf(2, "Test aim=> %d  %d\n", dna->aim.x, dna->aim.y);
 	//trouver les noeuds proches et les mettre en openlist
 	// dprintf(2, "Seigle faulte One\n");
 	dprintf(2, "----------------------------NEAR NODE ENTER\n");
-	near_nodes(dna, tmp, cur);
+	near_nodes(dna, cur, start, aim);
 	dprintf(2, "----------------------------NEAR NODE EXIT\n");
-
-	//dprintf(2, "KONG => %d\n", tmp[0].state);
-
-	//recalculer tous les noeuds dans open ou garder une liste des nouveaux
-	//et faire les updates quand necessaire
-
-	//rendre current le meilleur noeud
-	// dprintf(2, "----------------------------BEST NODE ENTER\n");
-	// if(best_node(dna, &cur))
-	// {
-	// 	dprintf(2, "Best Node Find !!! It's x=%d y=%d\n", cur.x, cur.y);
-	// 	dprintf(2, "Best score => %d\n", dna->area[cur.x][cur.y].node.f);
-	// 	dprintf(2, "Best score h => %d\n", dna->area[cur.x][cur.y].node.h);
-	// 	dprintf(2, "Best score g => %d\n", dna->area[cur.x][cur.y].node.g);
-	// 	// dprintf(2, "x => %d  y => %d\n", cur.x, cur.y);
-	// 	dna->area[cur.x][cur.y].path = '#';
-	// 	dna->area[cur.x][cur.y].node.state = CLOSED;
-	//
-	// }
-	// dprintf(2, "----------------------------BEST NODE EXIT\n");
-
-	// dprintf(2, "----------------------------NEAR NODE TWO\n");
-	// near_nodes(dna, tmp, cur);
-
-	// if(best_node(dna, &cur))
-	// {
-	// 	dprintf(2, "Best Node Find !!! It's x=%d y=%d\n", cur.x, cur.y);
-	// 	dprintf(2, "Best score => %d\n", dna->area[cur.x][cur.y].node.f);
-	// 	dprintf(2, "Best score h => %d\n", dna->area[cur.x][cur.y].node.h);
-	// 	dprintf(2, "Best score g => %d\n", dna->area[cur.x][cur.y].node.g);
-	// 	// dprintf(2, "x => %d  y => %d\n", cur.x, cur.y);
-	// 	dna->area[cur.x][cur.y].path = '#';
-	//
-	// }
-	// dprintf(2, "----------------------------NEAR NODE TWO END\n");
 
 	while (best_node(dna, &cur))
 	{
 		dprintf(2, "Best node > x%d   y%d\n", cur.x, cur.y);
 		dna->area[cur.x][cur.y].path = '#';
 		dna->area[cur.x][cur.y].node.state = CLOSED;
-		near_nodes(dna, tmp, cur);
+		near_nodes(dna, cur, start, aim);
 
-		if (cur.x == dna->goal.x && cur.y == dna->goal.y)
+		if (cur.x == dna->aim.x && cur.y == dna->aim.y)
 		{
+			rewind_path(dna, aim, start);
 			dprintf(2, "---------------------------------------------------------------------------------STOP PATHFINDING\n");
 			break;
 		}
 	}
 
+	//IMPORTANT !!!!!!!!!
+	// gerer le recalcule si le node est deja dans l openlist
 
 
 
