@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 13:57:16 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/24 02:08:46 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/25 01:11:02 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,9 +215,23 @@ void	nodes_cost(t_fil *dna, t_node *tmp)
 // 	return (manhattan(pos, aim) * 10);
 // }
 
+int		count_f(t_fil *dna, t_vect parent, t_vect aim, t_vect dir)
+{
+	int score;
+	int x;
+	int y;
 
+	x = parent.x + dir.x;
+	y = parent.y + dir.y;
+	score = 0;
 
-int		check_node(t_fil *dna, t_vect parent, t_vect dir)
+	score = manhattan(vect(x, y), aim) * 10;
+	score += dna->area[parent.x][parent.y].node.g;
+	score += (dir.x != 0 && dir.y != 0) ? 14 : 10;
+	return (score);
+}
+
+int		check_node(t_fil *dna, t_vect parent, t_vect dir, t_vect aim)
 {
 	int score;
 	int x;
@@ -245,6 +259,15 @@ int		check_node(t_fil *dna, t_vect parent, t_vect dir)
 	if (dna->area[x][y].node.state == OPEN)
 	{
 		dprintf(2, "ALREADY OPEN !\n");
+		if (count_f(dna, parent, aim, dir) < dna->area[x][y].node.f)
+		{
+			dna->area[x][y].node.f = count_f(dna, parent, aim, dir);
+			dna->area[x][y].node.parent.x = parent.x;
+			dna->area[x][y].node.parent.y = parent.y;
+			dna->area[x][y].node.h = manhattan(vect(x, y), aim) * 10;
+			dna->area[x][y].node.g = dna->area[parent.x][parent.y].node.g;
+			dna->area[x][y].node.g += (dir.x != 0 && dir.y != 0) ? 14 : 10;
+		}
 		return (0);
 		//dprintf(2, "MONGO => %d\n", dna->area[x][y].node.g);
 	}
@@ -346,28 +369,28 @@ void	near_nodes(t_fil *dna, t_vect parent, t_vect start, t_vect aim)
 	dprintf(2, "--#Enter Near Node#--\n");
 
 
-	if (check_node(dna, parent, vect(UP)))
+	if (check_node(dna, parent, vect(UP), aim))
 	{
 		// dprintf(2, "PERSONAL COMPUTER 1\n");
 		add_open(dna, parent, vect(UP), aim);
 		// dprintf(2, "x> %d  y> %d \n", parent.x + 0, parent.y + (-1));
 	}
 
-	if (check_node(dna, parent, vect(DOWN)))
+	if (check_node(dna, parent, vect(DOWN), aim))
 	{
 		// dprintf(2, "PERSONAL COMPUTER 2\n");
 		add_open(dna, parent, vect(DOWN), aim);
 		// dprintf(2, "x> %d  y> %d \n", parent.x + 0, parent.y + 1);
 	}
 	// dprintf(2, "PINOCCHIO\n");
-	if (check_node(dna, parent, vect(LEFT)))
+	if (check_node(dna, parent, vect(LEFT), aim))
 	{
 		// dprintf(2, "GEPETTO\n");
 		// dprintf(2, "PERSONAL COMPUTER 3\n");
 		add_open(dna, parent, vect(LEFT), aim);
 		// dprintf(2, "LEFT : x> %d  y> %d \n", parent.x + (-1), parent.y + 0);
 	}
-	if (check_node(dna, parent, vect(RIGHT)))
+	if (check_node(dna, parent, vect(RIGHT), aim))
 	{
 		// dprintf(2, "PERSONAL COMPUTER 4\n");
 		add_open(dna, parent, vect(RIGHT), aim);
