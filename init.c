@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/24 01:57:03 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/26 17:50:07 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_game(t_fil *dna, char **line)
 	get_players(dna, line);
 	get_map_size(dna, line);
 	create_area(dna, line);
-	debug_show_area(dna);
+	//debug_show_area(dna);
 	//init_area(dna, line);
 
 }
@@ -33,8 +33,8 @@ void	init_dna(t_fil *dna)
 	dna->move.score = 0;
 	dna->startx = 0;
 	dna->starty = 0;
-	dna->aim.x = 20;
-	dna->aim.y = 20;
+	dna->path.aim.x = 20;
+	dna->path.aim.y = 20;
 
 }
 

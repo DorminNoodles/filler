@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/24 01:56:18 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/26 15:40:24 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@
 #define CLEAR 0
 #define OPEN 1
 #define CLOSED 2
+#define NEAR_SCORE 2
+
+#define IDLE 0;
+#define ATK_PATH 1;
 
 typedef struct s_vect
 {
@@ -87,6 +91,12 @@ typedef struct s_piece
 		char tab[BUFFER_PIECE][BUFFER_PIECE];
 }t_piece;
 
+typedef struct s_path
+{
+	t_vect start;
+	t_vect aim;
+}t_path;
+
 typedef struct		s_fil
 {
 	int debug_fd;
@@ -100,10 +110,7 @@ typedef struct		s_fil
 	int** map_score;
 	char enemy_char;
 	char player_char;
-	t_vect from;
-	t_vect aim;
-
-
+	t_path path;
 
 }t_fil;
 
@@ -129,8 +136,9 @@ void	get_map_size(t_fil *dna, char **line);
 void	create_area(t_fil *dna, char **line);
 void	debug_show_area(t_fil *dna);
 t_vect	vect(int x, int y);
-void	pathfinding(t_fil *dna, t_vect start, t_vect aim);
+int		pathfinding(t_fil *dna, t_vect start, t_vect aim);
 void	debug_path_map(t_fil *dna);
+int		ft_abs(int x);
 
 
 

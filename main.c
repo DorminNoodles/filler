@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/23 18:54:16 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/26 19:19:55 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	create_area(t_fil *dna, char **line)
 	t_case **area;
 
 	x = 0;
-	ft_putstr_fd("Create_Area\n", 2);
+	// ft_putstr_fd("Create_Area\n", 2);
 	if(!(area = (t_case**)ft_memalloc(sizeof(t_case*) * dna->map.w)))
 		exit(EXIT_FAILURE);
 	while (x < dna->map.w)
@@ -136,7 +136,7 @@ char	**create_matrice(int w, int h)
 	char **plato;
 	int x;
 
-	ft_putstr_fd("Create matrice\n", 2);
+	// ft_putstr_fd("Create matrice\n", 2);
 	x = -1;
 	plato = NULL;
 
@@ -154,7 +154,7 @@ void display_segfault(int sig)
 {
 	if (sig == SIGSEGV)
 	{
-		ft_putstr_fd("[SEGFAULT]\n", 2);
+		// ft_putstr_fd("[SEGFAULT CUSTOM]\n", 2);
 		exit(EXIT_FAILURE);
 	}
 
@@ -174,16 +174,16 @@ int		main(void)
 	//dna.debug_fd = open("file_out", O_WRONLY);
 	while (get_next_line(0, &line))
 	{
-		dprintf(2, "Search segfault 1\n");
+		// dprintf(2, "Search segfault 1\n");
 		if (!dna.area)
 			init_game(&dna, &line);
 		reset(&dna);
 		// debug_score_map(&dna);
-		dprintf(2, "test w=> %d\n", dna.map.w);
-		dprintf(2, "test h=> %d\n", dna.map.h);
-		dprintf(2, "test player=> %d\n", dna.player);
+		// dprintf(2, "test w=> %d\n", dna.map.w);
+		// dprintf(2, "test h=> %d\n", dna.map.h);
+		// dprintf(2, "test player=> %d\n", dna.player);
 		parsing(&dna, &line);
-		dprintf(2, "Search segfault 2\n");
+		// dprintf(2, "Search segfault 2\n");
 		//dprintf(2, "Bart => %c\n", dna.area[38][5].path);
 		play(&dna);
 

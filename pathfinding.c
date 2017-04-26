@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 13:57:16 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/25 01:11:02 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/26 17:53:38 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int		cost_g(t_fil *dna, t_node *node)
 
 	res = 0;
 
-	res = (node->pos.x - dna->from.x) + (node->pos.y - dna->from.y);
+	res = (node->pos.x - dna->path.start.x) + (node->pos.y - dna->path.start.y);
 
 	//dprintf(2, "TESTTTTTT +> %d\n", res);
 
@@ -145,7 +145,7 @@ int		cost_h(t_fil *dna, t_node *node)
 
 	res = 0;
 
-	res = (node->pos.x - dna->aim.x) + (node->pos.y - dna->aim.y);
+	res = (node->pos.x - dna->path.aim.x) + (node->pos.y - dna->path.aim.y);
 
 	//dprintf(2, "TESTTTTTT +> %d\n", res);
 
@@ -368,7 +368,6 @@ void	near_nodes(t_fil *dna, t_vect parent, t_vect start, t_vect aim)
 {
 	dprintf(2, "--#Enter Near Node#--\n");
 
-
 	if (check_node(dna, parent, vect(UP), aim))
 	{
 		// dprintf(2, "PERSONAL COMPUTER 1\n");
@@ -409,22 +408,28 @@ void	near_nodes(t_fil *dna, t_vect parent, t_vect start, t_vect aim)
 
 void	rewind_path(t_fil *dna, t_vect aim, t_vect start)
 {
+	// int debug;
+
+	// debug = 0;
 	while (aim.x != start.x || aim.y != start.y)
 	{
-		dprintf(2, "Parents => x%d   y%d\n", dna->area[aim.x][aim.y].node.parent.x, dna->area[aim.x][aim.y].node.parent.y);
+		// dprintf(2, "Parents => x%d   y%d\n", dna->area[aim.x][aim.y].node.parent.x, dna->area[aim.x][aim.y].node.parent.y);
 		dna->area[aim.x][aim.y].score = 5;
-		dna->area[aim.x][aim.y].path = '?';
+		// if (!debug)
+			// debug = 1;
+		// else
+		//  dna->area[aim.x][aim.y].path = '?';
 
 		aim = dna->area[aim.x][aim.y].node.parent;
 	}
 }
 
-void	pathfinding(t_fil *dna, t_vect start, t_vect aim)
+int		pathfinding(t_fil *dna, t_vect start, t_vect aim)
 {
 	t_vect cur;
 
-	dna->from.x = dna->startx;
-	dna->from.y = dna->starty;
+	dna->path.start.x = dna->startx;
+	dna->path.start.y = dna->starty;
 
 
 	// dprintf(2, "dna start x %d\n", dna->startx);
@@ -433,13 +438,16 @@ void	pathfinding(t_fil *dna, t_vect start, t_vect aim)
 	cur.x = start.x;
 	cur.y = start.y;
 
-	dna->area[dna->from.x][dna->from.y].path = 'A';
-	dprintf(2, "Start A >  x = %d   y = %d\n", cur.x, cur.y);
-	dna->area[dna->aim.x][dna->aim.y].path = 'B';
-	dna->area[dna->from.x][dna->from.y].node.state = CLOSED;
+	dna->area[dna->path.start.x][dna->path.start.y].path = 'A';
+	// dprintf(2, "Start A >  x = %d   y = %d\n", cur.x, cur.y);
+	dna->area[dna->path.aim.x][dna->path.aim.y].path = 'B';
+	dna->area[dna->path.start.x][dna->path.start.y].node.state = CLOSED;
 
-	dna->area[start.x][start.y].node.parent.x = aim.x;
-	dna->area[start.x][start.y].node.parent.y = aim.y;
+	// dna->area[start.x][start.y].node.parent.x = aim.x;
+	// dna->area[start.x][start.y].node.parent.y = aim.y;
+
+	dna->area[start.x][start.y].node.parent.x = start.x;
+	dna->area[start.x][start.y].node.parent.y = start.y;
 	// dprintf(2, "Test aim=> %d  %d\n", dna->aim.x, dna->aim.y);
 	// dprintf(2, "Test aim=> %d  %d\n", dna->aim.x, dna->aim.y);
 	//trouver les noeuds proches et les mettre en openlist
@@ -451,18 +459,18 @@ void	pathfinding(t_fil *dna, t_vect start, t_vect aim)
 	while (best_node(dna, &cur))
 	{
 		dprintf(2, "Best node > x%d   y%d\n", cur.x, cur.y);
-		dna->area[cur.x][cur.y].path = '#';
+		if (cur.x != aim.x || cur.y != aim.y)
+			dna->area[cur.x][cur.y].path = '#';
 		dna->area[cur.x][cur.y].node.state = CLOSED;
 		near_nodes(dna, cur, start, aim);
 
-		if (cur.x == dna->aim.x && cur.y == dna->aim.y)
+		if (cur.x == dna->path.aim.x && cur.y == dna->path.aim.y)
 		{
 			rewind_path(dna, aim, start);
-			dprintf(2, "---------------------------------------------------------------------------------STOP PATHFINDING\n");
-			break;
+			// debug_path_map(dna);
+			return (1);
 		}
 	}
-
 	//IMPORTANT !!!!!!!!!
 	// gerer le recalcule si le node est deja dans l openlist
 
@@ -470,5 +478,5 @@ void	pathfinding(t_fil *dna, t_vect start, t_vect aim)
 
 	// dna->area[cur.x][cur.y].path = 'N';
 
-	debug_path_map(dna);
+	return (0);
 }

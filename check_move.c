@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/22 11:09:19 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/26 17:50:48 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		get_indice(t_fil *dna, int length, int div)
 	if (div < 0)
 	 div *= -1;
 
-	 dprintf(2, "get_indice length => %d\n", length);
-	 dprintf(2, "get_indice div => %d\n", div);
+	//  dprintf(2, "get_indice length => %d\n", length);
+	//  dprintf(2, "get_indice div => %d\n", div);
 		//dprintf(2, "length => %d\n", length);
 	return (length / div);
 
@@ -96,9 +96,9 @@ int		check_liberty(t_fil *dna, int endx, int endy)
 	deltax = (endx - dna->startx) / (float)max_length;
 	deltay = (endy - dna->starty) / (float)max_length;
 
-	dprintf(2, "deltay => %f\n", deltay);
-	dprintf(2, "max_length => %d\n", max_length);
-	dprintf(2, "SEGFAULT SEARCH\n");
+	// dprintf(2, "deltay => %f\n", deltay);
+	// dprintf(2, "max_length => %d\n", max_length);
+	// dprintf(2, "SEGFAULT SEARCH\n");
 
 	while (i < (int)max_length)
 	{
@@ -109,7 +109,7 @@ int		check_liberty(t_fil *dna, int endx, int endy)
 		x += deltax;
 		i++;
 	}
-	dprintf(2, "SEGFAULT SEARCH\n");
+	// dprintf(2, "SEGFAULT SEARCH\n");
 
 	return (1);
 }
@@ -148,6 +148,8 @@ int		check_contact(t_fil *dna, int x, int y, int score)
 	return (score);
 }
 
+
+
 int		test_each_block(t_fil *dna, int tabx, int taby)
 {
 	int x;
@@ -155,12 +157,9 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 	int weld;
 	int score;
 
-	// dprintf(2, "ENTER_TEST_EACH_BLOCK\n");
 	weld = 0;
 	y = 0;
 	score = 0;
-
-	// if (tabx == 20 && taby == 23)
 
 	while (y < dna->piece.h)
 	{
@@ -178,7 +177,8 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 				if (dna->area[tabx + x][taby + y].sign == dna->player_char)
 					weld++;
 				score += dna->area[tabx + x][taby + y].score;
-				score = check_contact(dna, tabx + x, tabx + y, score);
+				//score = check_contact(dna, tabx + x, tabx + y, score);
+				//score = distance_check(dna);
 			}
 			x++;
 		}
@@ -200,12 +200,11 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 	}
 }
 
-
 void	check_move(t_fil *dna)
 {
-	debug_show_piece(dna);
+	// debug_show_piece(dna);
 
-	dprintf(2, "ENTER CHECK_MOVE\n");
+	// dprintf(2, "ENTER CHECK_MOVE\n");
 
 	int x;
 	int y;
@@ -219,7 +218,6 @@ void	check_move(t_fil *dna)
 	dna->move.y = 0;
 
 	y = 0 - dna->piece.h;
-
 	while (y < dna->map.h - 1 && !test)
 	{
 		x = 0 - dna->piece.w;
@@ -234,6 +232,7 @@ void	check_move(t_fil *dna)
 					dna->move.score = score;
 					dna->move.x = x;
 					dna->move.y = y;
+					// dprintf(2, "Score => %d\n", dna->move.score);
 				}
 			}
 			x++;
@@ -241,15 +240,14 @@ void	check_move(t_fil *dna)
 		// dprintf(2, "Couilles\n");
 		y++;
 	}
-	 dprintf(2, "best => %d %d\n", dna->move.y, dna->move.x);
+	//  dprintf(2, "Best Move => %d %d\n", dna->move.y, dna->move.x);
 	 dprintf(1, "%d %d\n", dna->move.y, dna->move.x);
 	// if (!test)
 	// {
 	// 	dprintf(2, "0 0\n");
 	// 	dprintf(1, "0 0\n");
 	// }
-
 	// dprintf(2, "while y => %d\n", y);
-	dprintf(2, "END CHECK_MOVE\n");
+	// dprintf(2, "END CHECK_MOVE\n");
 
 }
