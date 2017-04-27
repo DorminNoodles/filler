@@ -1,4 +1,4 @@
-NAME = resources/players/lchety.filler
+NAME = lchety.filler
 CC = clang
 SRC =	main.c							\
 		init.c							\
@@ -22,7 +22,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	make -C libft/
-	$(CC) $(OBJ) -I $(INC) libft/libft.a -o $(NAME)
+	$(CC) $(OBJ) -I $(INC) libft/libft.a -o resources/players/$(NAME)
 
 %.o : %.c filler.h
 	$(CC) -c $< -I $(INC) -o $@

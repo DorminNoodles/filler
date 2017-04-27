@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 16:20:23 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/26 17:50:07 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/27 17:44:29 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,14 @@ void	reset_score(t_fil *dna)
 	y = 0;
 	x = 0;
 
-
 	while (y < dna->map.h)
 	{
 		x = 0;
 		while (x < dna->map.w)
 		{
 			dna->area[x][y].score = 0;
-			// dprintf(2, "%3d", dna->area[x][y].score);
 			x++;
 		}
-		// dprintf(2, "\n");
 		y++;
 	}
 }

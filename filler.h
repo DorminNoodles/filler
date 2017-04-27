@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/26 15:40:24 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/27 15:05:35 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include "libft.h"
 #include "get_next_line.h"
 
-#define BUFFER_PIECE 64
+#define BUFFER_PIECE 128
 #define DIAGONALE 90
 #define UP 0, -1
 #define DOWN 0, 1

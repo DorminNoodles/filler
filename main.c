@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/26 19:19:55 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/27 17:39:37 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ void	get_map_size(t_fil *dna, char **line)
 		{
 			dna->map.w = ft_atoi(split[2]);
 			dna->map.h = ft_atoi(split[1]);
+			ft_memdel((void**)&split[0]);
+			ft_memdel((void**)&split[1]);
+			ft_memdel((void**)&split[2]);
+			ft_memdel((void**)&split);
 		}
 		else
 		{
@@ -122,15 +126,6 @@ void	create_area(t_fil *dna, char **line)
 	dna->area = area;
 }
 
-void	init_area(t_fil *dna, char **line)
-{
-	int x;
-	int y;
-
-
-
-}
-
 char	**create_matrice(int w, int h)
 {
 	char **plato;
@@ -171,6 +166,7 @@ int		main(void)
 
 	line = NULL;
 	dna.area = NULL;
+	// test = (char*)malloc(600);
 	//dna.debug_fd = open("file_out", O_WRONLY);
 	while (get_next_line(0, &line))
 	{
@@ -188,6 +184,7 @@ int		main(void)
 		play(&dna);
 
 		// free(line);
+		//ft_memdel((void**)&line);
 	}
 	close(fd);
 	return (0);
