@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/27 17:39:37 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/27 18:04:33 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,8 +179,6 @@ int		main(void)
 		// dprintf(2, "test h=> %d\n", dna.map.h);
 		// dprintf(2, "test player=> %d\n", dna.player);
 		parsing(&dna, &line);
-		// dprintf(2, "Search segfault 2\n");
-		//dprintf(2, "Bart => %c\n", dna.area[38][5].path);
 		play(&dna);
 
 		// free(line);

@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/26 18:48:31 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/27 18:04:20 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,19 +125,6 @@ void	near(t_fil *dna)
 
 void	play(t_fil *dna)
 {
-	int state;
-
-	state = 0;
-
-	//dprintf(2, "ENTER PLAY\n");
-	//pathfinding(dna, vect(dna->path.start.x, dna->path.start.y),
-	//vect(dna->path.aim.x, dna->path.aim.y));
-	//state = set_state(dna);
-	//diagonale(dna);
-	// if (tab[0])
-	// dprintf(2, "TAB TAB TAB => %d\n", tab[0]);
-
-	//meridian(dna);
 	near(dna);
 	check_move(dna);
 	// debug_score_map(dna);
