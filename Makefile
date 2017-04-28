@@ -5,17 +5,14 @@ SRC =	main.c							\
 		map.c							\
 		parsing.c						\
 		play.c							\
-		del.c							\
-		score_map.c						\
 		check_move.c					\
-		debug.c							\
-		tactique.c						\
-		pathfinding.c					\
 		vector.c
 
-INC =	libft/includes
+INC =	libft/includes includes/
 
 FLAGS = -Wall -Wextra -Werror
+
+SRCS = $(addprefix srcs/, $(SRC))
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
@@ -24,7 +21,7 @@ $(NAME) : $(OBJ)
 	make -C libft/
 	$(CC) $(OBJ) -I $(INC) libft/libft.a -o resources/players/$(NAME)
 
-%.o : %.c filler.h
+%.o : srcs/%.c filler.h
 	$(CC) -c $< -I $(INC) -o $@
 
 clean :

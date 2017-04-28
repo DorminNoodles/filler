@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/27 17:57:59 by lchety           ###   ########.fr       */
+/*   Updated: 2017/04/28 17:40:16 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		check_liberty(t_fil *dna, int endx, int endy)
 	while (i < (int)max_length)
 	{
 		// dprintf(2, "HERE > x %f   y %f\n", x, y);
-		if (dna->area[(int)x][(int)y].sign == dna->enemy_char)
+		if (dna->map.area[(int)x][(int)y].sign == dna->enemy_char)
 			return (0);
 		y += deltay;
 		x += deltax;
@@ -100,42 +100,6 @@ int		check_liberty(t_fil *dna, int endx, int endy)
 
 	return (1);
 }
-
-// int		check_contact(t_fil *dna, int x, int y, int score)
-// {
-// 	if (y - 1 >= 0 && dna->area[x][y - 1].sign == dna->player_char)
-// 		score *= 0.85;
-//
-// 	if (y + 1 < dna->map.h && dna->area[x][y + 1].sign == dna->player_char)
-// 		score *= 0.85;
-//
-// 	if (x - 1 >= 0 && dna->area[x - 1][y].sign == dna->player_char)
-// 		score *= 0.85;
-//
-// 	if (x + 1 < dna->map.w && dna->area[x + 1][y].sign == dna->player_char)
-// 		score *= 0.85;
-//
-// 	return (score);
-// }
-
-int		check_contact(t_fil *dna, int x, int y, int score)
-{
-	if (y - 1 >= 0 && dna->area[x][y - 1].sign != dna->player_char)
-		score += 0;
-
-	if (y + 1 < dna->map.h && dna->area[x][y + 1].sign != dna->player_char)
-		score += 0;
-
-	if (x - 1 >= 0 && dna->area[x - 1][y].sign != dna->player_char)
-		score += 0;
-
-	if (x + 1 < dna->map.w && dna->area[x + 1][y].sign != dna->player_char)
-		score += 0;
-
-	return (score);
-}
-
-
 
 int		test_each_block(t_fil *dna, int tabx, int taby)
 {
@@ -147,7 +111,6 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 	weld = 0;
 	y = 0;
 	score = 0;
-
 	while (y < dna->piece.h)
 	{
 		x = 0;
@@ -159,40 +122,25 @@ int		test_each_block(t_fil *dna, int tabx, int taby)
 					return (0);
 				if (taby + y < 0 || taby + y >= dna->map.h)
 					return (0);
-				if (dna->area[tabx + x][taby + y].sign == dna->enemy_char)
+				if (dna->map.area[tabx + x][taby + y].sign == dna->enemy_char)
 					return (0);
-				if (dna->area[tabx + x][taby + y].sign == dna->player_char)
+				if (dna->map.area[tabx + x][taby + y].sign == dna->player_char)
 					weld++;
-				score += dna->area[tabx + x][taby + y].score;
-				//score = check_contact(dna, tabx + x, tabx + y, score);
-				//score = distance_check(dna);
+				score += dna->map.area[tabx + x][taby + y].score;
 			}
 			x++;
 		}
 		y++;
 	}
 
-
 	if (weld == 1)
-	{
-		// dprintf(2, "Find Move x %d  y %d  \n", tabx, taby);
-		// dprintf(2, "Score = > %d  \n", score);
 		return ((score) ? score : 1);
-	}
 	else
-	{
-		// if (tabx == 20 && taby == 23)
-		// 	dprintf(2, "################## WELD COUPABLE = %d\n", weld);
 		return (0);
-	}
 }
 
 void	check_move(t_fil *dna)
 {
-	// debug_show_piece(dna);
-
-	// dprintf(2, "ENTER CHECK_MOVE\n");
-
 	int x;
 	int y;
 	int test;
@@ -215,26 +163,13 @@ void	check_move(t_fil *dna)
 			{
 				if (score > dna->move.score)
 				{
-					// dprintf(2, "More scoring\n");
 					dna->move.score = score;
 					dna->move.x = x;
 					dna->move.y = y;
-					// dprintf(2, "Score => %d\n", dna->move.score);
 				}
 			}
 			x++;
 		}
-		// dprintf(2, "Couilles\n");
 		y++;
 	}
-	//  dprintf(2, "Best Move => %d %d\n", dna->move.y, dna->move.x);
-	 dprintf(1, "%d %d\n", dna->move.y, dna->move.x);
-	// if (!test)
-	// {
-	// 	dprintf(2, "0 0\n");
-	// 	dprintf(1, "0 0\n");
-	// }
-	// dprintf(2, "while y => %d\n", y);
-	// dprintf(2, "END CHECK_MOVE\n");
-
 }

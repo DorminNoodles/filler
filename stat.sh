@@ -6,14 +6,14 @@
 #    By: tfontain <tfontain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/11 23:38:53 by tfontain          #+#    #+#              #
-#    Updated: 2017/04/27 12:26:57 by lchety           ###   ########.fr        #
+#    Updated: 2017/04/28 12:11:26 by lchety           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-player1=lchety.filler
-player2=grati.filler
+player2=lchety.filler
+player1=grati.filler
 
-n_turns=20
+n_turns=5
 map=00
 
 # dont touch after this line --------------------------------------------------
