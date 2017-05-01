@@ -2,13 +2,11 @@ NAME = lchety.filler
 CC = clang
 SRC =	main.c							\
 		init.c							\
-		map.c							\
 		parsing.c						\
 		play.c							\
 		check_move.c					\
-		vector.c
 
-INC =	libft/includes includes/
+INC = -I includes -I libft/includes
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -19,10 +17,10 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	make -C libft/
-	$(CC) $(OBJ) -I $(INC) libft/libft.a -o resources/players/$(NAME)
+	$(CC) $(OBJ) $(INC) libft/libft.a -o resources/players/$(NAME)
 
-%.o : srcs/%.c filler.h
-	$(CC) -c $< -I $(INC) -o $@
+%.o : srcs/%.c includes/filler.h
+	$(CC) -c $< $(INC) -o $@
 
 clean :
 	make -C libft/ clean

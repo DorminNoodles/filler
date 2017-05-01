@@ -6,30 +6,11 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:58:40 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/28 17:40:16 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/01 13:23:50 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
-void 	debug_show_piece(t_fil *dna)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while (y < dna->piece.h)
-	{
-		x = 0;
-		while (x < dna->piece.w)
-		{
-			dprintf(2, "%c", dna->piece.tab[x][y]);
-			x++;
-		}
-		dprintf(2, "\n");
-		y++;
-	}
-}
 
 int		get_length(t_fil *dna, int x, int y)
 {
@@ -57,10 +38,6 @@ int		get_indice(t_fil *dna, int length, int div)
 		length *= -1;
 	if (div < 0)
 	 div *= -1;
-
-	//  dprintf(2, "get_indice length => %d\n", length);
-	//  dprintf(2, "get_indice div => %d\n", div);
-		//dprintf(2, "length => %d\n", length);
 	return (length / div);
 
 }

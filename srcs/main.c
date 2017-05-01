@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/28 14:48:19 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/01 13:41:34 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,6 @@ void	create_area(t_fil *dna, char **line)
 	}
 	dna->map.area = area;
 }
-
-// char	**create_matrice(int w, int h)
-// {
-// 	char **plato;
-// 	int x;
-//
-// 	x = -1;
-// 	plato = NULL;
-// 	if(!(plato = (char**)ft_memalloc(sizeof(char*) * w)))
-// 		exit(EXIT_FAILURE);
-// 	while (++x < w)
-// 	{
-// 		if(!(*(plato + x) = (char*)ft_memalloc(sizeof(char) * h)))
-// 			exit(EXIT_FAILURE);
-// 	}
-// 	return (plato);
-// }
 
 int		main(void)
 {

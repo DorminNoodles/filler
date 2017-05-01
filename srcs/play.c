@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/28 14:48:46 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/01 13:48:23 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,12 @@ void	play(t_fil *dna)
 {
 	near(dna);
 	check_move(dna);
+	ft_putstr(ft_itoa(dna->move.y));
+	ft_putstr(" ");
+	ft_putstr(ft_itoa(dna->move.x));
+	ft_putstr("\n");
+
+	dprintf(2, "score => %d\n", dna->move.score);
+	dprintf(2, "x => %d\n", dna->move.x);
+	dprintf(2, "y => %d\n", dna->move.y);
 }

@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/04/28 14:46:39 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/01 11:06:39 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,6 @@ typedef struct s_vect
 	int x;
 	int y;
 }t_vect;
-//
-// typedef struct s_node
-// {
-// 	t_vect parent;
-// 	t_vect pos;
-// 	int state;
-// 	int ok;
-// 	int g;
-// 	int h;
-// 	int f;
-// }t_node;
 
 typedef struct	s_case
 {
