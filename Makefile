@@ -1,10 +1,11 @@
 NAME = lchety.filler
 CC = clang
 SRC =	main.c							\
-		init.c							\
+		reset.c							\
 		parsing.c						\
 		play.c							\
 		check_move.c					\
+		piece.c
 
 INC = -I includes -I libft/includes
 

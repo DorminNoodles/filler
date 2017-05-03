@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 21:04:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/05/01 13:48:23 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/03 14:13:33 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	near(t_fil *dna)
 	int x;
 	int y;
 
-	x = 0;
 	y = 0;
-
 	while (y < dna->map.h)
 	{
 		x = 0;
@@ -40,7 +38,6 @@ void	near(t_fil *dna)
 		}
 		y++;
 	}
-
 }
 
 void	play(t_fil *dna)
@@ -51,8 +48,4 @@ void	play(t_fil *dna)
 	ft_putstr(" ");
 	ft_putstr(ft_itoa(dna->move.x));
 	ft_putstr("\n");
-
-	dprintf(2, "score => %d\n", dna->move.score);
-	dprintf(2, "x => %d\n", dna->move.x);
-	dprintf(2, "y => %d\n", dna->move.y);
 }
