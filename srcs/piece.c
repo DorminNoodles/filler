@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 13:48:50 by lchety            #+#    #+#             */
-/*   Updated: 2017/05/03 14:04:32 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/03 14:59:41 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		check_piece_split(char **split)
 {
-	dprintf(2, "Check_split\n");
 	if (!split[1])
 		return (0);
 	if (!split[2])

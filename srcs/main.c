@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/05/03 14:14:25 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/03 14:59:30 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int		main(void)
 		if (!dna.map.area)
 			init_game(&dna, &line);
 		reset(&dna);
-		dprintf(2, "TEST\n");
 		if (!pars_map(&dna, &line))
 			return (0);
 		if (!pars_piece(&dna, &line))
