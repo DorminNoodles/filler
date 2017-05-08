@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:47:17 by lchety            #+#    #+#             */
-/*   Updated: 2017/05/04 11:54:50 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/08 16:16:03 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		init_game(t_fil *dna, char **line)
 	get_players(dna, line);
 	if (!get_map_size(dna, line))
 		return (0);
-	if (!create_area(dna, line))
+	if (!create_area(dna))
 		return (0);
 	return (1);
 }
@@ -32,7 +32,7 @@ void	init_dna(t_fil *dna)
 	dna->move.score = 0;
 }
 
-int		create_area(t_fil *dna, char **line)
+int		create_area(t_fil *dna)
 {
 	int		x;
 	int		y;
@@ -61,9 +61,7 @@ int		create_area(t_fil *dna, char **line)
 int		main(void)
 {
 	t_fil	dna;
-	int		fd;
 	char	*line;
-	char	**split;
 
 	line = NULL;
 	dna.map.area = NULL;
@@ -71,13 +69,14 @@ int		main(void)
 	{
 		if (!dna.map.area)
 			init_game(&dna, &line);
-		reset(&dna);
+		if(dna.map.area)
+			reset(&dna);
 		if (!pars_map(&dna, &line))
 			return (0);
+		dprintf(2, "Bouton\n");
 		if (!pars_piece(&dna, &line))
 			return (0);
 		play(&dna);
 	}
-	close(fd);
 	return (0);
 }

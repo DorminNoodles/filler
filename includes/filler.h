@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 22:51:53 by lchety            #+#    #+#             */
-/*   Updated: 2017/05/03 14:53:38 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/08 16:16:24 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void			parsing(t_fil *dna, char **line);
 void			play(t_fil *dna);
 void			get_players(t_fil *dna, char **line);
 int				get_map_size(t_fil *dna, char **line);
-int				create_area(t_fil *dna, char **line);
+int				create_area(t_fil *dna);
 void			check_move(t_fil *dna);
 int				pars_piece(t_fil *dna, char **line);
 int				pars_map(t_fil *dna, char **line);

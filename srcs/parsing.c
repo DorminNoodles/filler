@@ -6,7 +6,7 @@
 /*   By: lchety <lchety@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 20:38:55 by lchety            #+#    #+#             */
-/*   Updated: 2017/05/03 14:47:45 by lchety           ###   ########.fr       */
+/*   Updated: 2017/05/08 16:17:14 by lchety           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@ int		pars_map(t_fil *dna, char **line)
 	int		x;
 	int		y;
 
+	dprintf(2, "ohle ohle\n");
+
 	y = 0;
 	while (!ft_strstr(*line, "000 "))
 	{
 		ft_memdel((void**)line);
 		get_next_line(0, line);
+		if (!*line)
+			return (0);
 	}
 	while (y < dna->map.h)
 	{
@@ -36,6 +40,8 @@ int		pars_map(t_fil *dna, char **line)
 		y++;
 		ft_memdel((void**)line);
 		get_next_line(0, line);
+		if (!*line)
+			return (0);
 	}
 	return (1);
 }
@@ -64,6 +70,7 @@ int		pars_piece(t_fil *dna, char **line)
 		return (0);
 	while (y < dna->piece.h)
 	{
+		dprintf(2, "ta maman piece\n");
 		ft_memdel((void **)line);
 		get_next_line(0, line);
 		x = 0;
@@ -100,10 +107,15 @@ int		get_map_size(t_fil *dna, char **line)
 {
 	char **split;
 
+	dprintf(2, "je bug\n");
+	dprintf(2, ">> %s\n", *line);
 	while (!ft_strstr(*line, "Plateau"))
 	{
+		dprintf(2, "je HAHAHAHAHA\n");
 		ft_memdel((void**)line);
 		get_next_line(0, line);
+		if (*line == NULL)
+			return (0);
 	}
 	if ((split = ft_strsplit(*line, ' ')))
 	{
